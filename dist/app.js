@@ -1,4 +1,9 @@
+const btn = document.querySelector('button.mobile-menu-button');
+const menu = document.querySelector('.mobile-menu');
 
+btn.addEventListener('click', () => {
+  menu.classList.toggle('hidden');
+});
 /**
  * showSlides() displays a slideshow by looping through an array of slide elements
  * and displaying one slide at a time. It sets the display to 'none' for all slides,

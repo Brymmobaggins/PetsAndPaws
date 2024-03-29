@@ -7,24 +7,102 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body class="font-Tauri">
-    <header class="bg-slate-50 flex justify-between p-5">
-      <ul class="flex [&>*]:px-2">
-        <!-- Navigation links -->
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Webshop</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-      <div class="">
-        <span>0</span>
-        <span>My Basket</span>
+    <nav class="mobile:text-sm tablet:text-base laptop:text-lg">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex justify-between">
+          <div class="flex space-x-4">
+            <!-- logo goes here -->
+            <div>
+              <a class="flex items-center py-5 px-2">
+                <svg
+                  height="800px"
+                  width="800px"
+                  version="1.1"
+                  id="Capa_1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  viewBox="0 0 48.839 48.839"
+                  xml:space="preserve"
+                  class="h-6 w-6 mr-1"
+                >
+                  <g>
+                    <path
+                      style="fill: #a73edc"
+                      d="M39.041,36.843c2.054,3.234,3.022,4.951,3.022,6.742c0,3.537-2.627,5.252-6.166,5.252
+		c-1.56,0-2.567-0.002-5.112-1.326c0,0-1.649-1.509-5.508-1.354c-3.895-0.154-5.545,1.373-5.545,1.373
+		c-2.545,1.323-3.516,1.309-5.074,1.309c-3.539,0-6.168-1.713-6.168-5.252c0-1.791,0.971-3.506,3.024-6.742
+		c0,0,3.881-6.445,7.244-9.477c2.43-2.188,5.973-2.18,5.973-2.18h1.093v-0.001c0,0,3.698-0.009,5.976,2.181
+		C35.059,30.51,39.041,36.844,39.041,36.843z M16.631,20.878c3.7,0,6.699-4.674,6.699-10.439S20.331,0,16.631,0
+		S9.932,4.674,9.932,10.439S12.931,20.878,16.631,20.878z M10.211,30.988c2.727-1.259,3.349-5.723,1.388-9.971
+		s-5.761-6.672-8.488-5.414s-3.348,5.723-1.388,9.971C3.684,29.822,7.484,32.245,10.211,30.988z M32.206,20.878
+		c3.7,0,6.7-4.674,6.7-10.439S35.906,0,32.206,0s-6.699,4.674-6.699,10.439C25.507,16.204,28.506,20.878,32.206,20.878z
+		 M45.727,15.602c-2.728-1.259-6.527,1.165-8.488,5.414s-1.339,8.713,1.389,9.972c2.728,1.258,6.527-1.166,8.488-5.414
+		S48.455,16.861,45.727,15.602z"
+                    />
+                  </g>
+                </svg>
+                <span class="font-bold">Pet&Paws</span>
+              </a>
+            </div>
+            <!-- primary nav -->
+            <div class="hidden tablet:flex items-center space-x-1">
+              <a href="" class="py-5 px-3 text-gray-700 hover:bg-alabaster-200"
+                >Shop</a
+              >
+              <a href="" class="py-5 px-3 text-gray-700 hover:bg-alabaster-200"
+                >Contact</a
+              >
+            </div>
+          </div>
+
+          <!-- seconday nav -->
+          <div class="hidden tablet:flex text-center space-x-1">
+            <a href="#" class="py-5 px-0">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  d="M2.25 2.25a.75.75 0 0 0 0 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 0 0-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 0 0 0-1.5H5.378A2.25 2.25 0 0 1 7.5 15h11.218a.75.75 0 0 0 .674-.421 60.358 60.358 0 0 0 2.96-7.228.75.75 0 0 0-.525-.965A60.864 60.864 0 0 0 5.68 4.509l-.232-.867A1.875 1.875 0 0 0 3.636 2.25H2.25ZM3.75 20.25a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0ZM16.5 20.25a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z"
+                />
+              </svg>
+            </a>
+            <a href="#" class="py-5 px-3">0</a>
+          </div>
+          <div class="tablet:hidden flex items-center">
+            <button class="mobile-menu-button">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="w-5 h-5"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M2 4.75A.75.75 0 0 1 2.75 4h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 4.75ZM2 10a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 10Zm0 5.25a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
       </div>
-    </header>
-    <main class="border border-yellow-300">
-      <div
-        class="w-full max-w-3xl m-auto relative border-2 border-red-800"
-      >
+      <!-- mobile menu -->
+      <div class="mobile-menu hidden tablet:hidden">
+        <a href="" class="block px-2 py-4 text-sm hover:text-gray-200">Shop</a>
+        <a href="" class="block px-2 py-4 text-sm hover:text-gray-200"
+          >Contact</a
+        >
+      </div>
+    </nav>
+
+    <!-- content goes here -->
+    <main class="border">
+      <div class="w-full max-w-xl m-auto relative border-2 border-red-800">
         <div
-          class="flex flex-col items-center justify-center h-screen text-md slide text-6xl"
+          class="flex flex-col items-center justify-center h-screen text-2xl slide tablet:text-center laptop:text-3xl"
         >
           <h1>Welcome to our PET store!</h1>
         </div>
@@ -43,98 +121,172 @@
         </div>
       </div>
     </main>
+
     <!-- Product section -->
-    <section class="border border-current">
-      <div class="flex max-w-5xl m-auto py-5">
-        <div class="cards text-center">
+
+    <section
+      class="grid grid-cols-1 mobile:grid-cols-2 tablet:grid-cols-3 desktop:grid-cols-4 m-auto text-lg"
+    >
+      <div
+        class="relative m-10 flex flex-col overflow-hidden rounded-lg bg-white shadow-md"
+      >
+        <div class="relative mt-3 flex h-60 overflow-hidden rounded-xl">
           <img
-            src="/assets/german-shepherd-3.jpeg"
-            alt=""
-            class="object-contain h-48 w-96"
+            class="object-cover w-full"
+            src="/assets/bedlington.jpeg"
+            alt="product image"
           />
-          <span class="price">N10,000</span>
-          <p>German Shepherd</p>
-          <button
-            class="border border-current rounded bg-slate-500 hover:bg-slate-700 text-white text-md px-2 py-1"
-          >
-            Add to basket
-          </button>
         </div>
-        <div class="cards text-center">
-          <img
-            src="/assets/causcasian-shepherd-puppy.jpeg"
-            alt=""
-            class="object-contain h-48 w-full"
-          />
-          <span class="price">N20,000</span>
-          <p>Lorem ipsum dolor sit amet.</p>
+        <div class="mt-4 px-5 pb-5">
+          <h5 class="text-lg tracking-tight text-slate-900">Belington</h5>
+          <div class="mt-2 mb-3 flex items-center justify-between">
+            <p>
+              <span class="text-xl font-bold text-slate-900">N200,000</span>
+            </p>
+          </div>
           <button
-            class="border border-current rounded bg-slate-500 hover:bg-slate-700 text-white text-md px-2 py-1"
+            class="flex items-center justify-center w-full rounded-md bg-black-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-black-900"
           >
-            Add to basket
-          </button>
-        </div>
-        <div class="cards text-center">
-          <img
-            src="/assets/Rottweiler-4.avif"
-            alt=""
-            class="object-contain h-48 w-96"
-          />
-          <span class="price">N30,000</span>
-          <p>Rottweiler</p>
-          <button
-            class="border border-current rounded bg-slate-500 hover:bg-slate-700 text-white text-md px-2 py-1"
-          >
-            Add to basket
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="mr-2 h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+              />
+            </svg>
+            Add to cart
           </button>
         </div>
       </div>
-      <!-- second product row -->
-      <div class="flex max-w-5xl m-auto">
-        <div class="cards text-center">
+      <div
+        class="relative m-10 flex max-w-xs flex-col overflow-hidden rounded-lg shadow-md"
+      >
+        <div class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl">
           <img
-            src="/assets/Pomeranian.jpeg"
-            alt=""
-            class="object-contain h-48 w-96"
+            class="object-cover w-full"
+            src="/assets/Alaska_MalaMute.jpeg"
+            alt="product image"
           />
-          <span class="price">N10,000</span>
-          <p>German Shepherd</p>
-          <button
-            class="border border-current rounded bg-slate-500 hover:bg-slate-700 text-white text-md px-2 py-1"
-          >
-            Add to basket
-          </button>
         </div>
-        <div class="cards text-center">
-          <img
-            src="/assets/American-Eskimo.jpeg"
-            alt=""
-            class="object-contain h-48 w-96"
-          />
-          <span class="price">N10,000</span>
-          <p>German Shepherd</p>
-          <button
-            class="border border-current rounded bg-slate-500 hover:bg-slate-700 text-white text-md px-2 py-1"
-          >
-            Add to basket
-          </button>
-        </div>
+        <div class="mt-4 px-5 pb-5">
+          <h5 class="text-lg tracking-tight text-slate-900">Alaska Malamute</h5>
 
-        <div class="cards text-center">
-          <img
-            src="/assets/Serberian-Husky.jpeg"
-            alt=""
-            class="object-contain h-48 w-96"
-          />
-          <span class="price">N10,000</span>
-          <p>German Shepherd</p>
+          <div class="mt-2 mb-3 flex items-center justify-between">
+            <p>
+              <span class="text-xl font-bold text-slate-900">N150,000</span>
+            </p>
+          </div>
           <button
-            class="border border-current rounded bg-slate-500 hover:bg-slate-700 text-white text-md px-2 py-1"
+            class="flex items-center justify-center w-full rounded-md bg-black-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-black-900"
           >
-            Add to basket
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="mr-2 h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+              />
+            </svg>
+            Add to cart
+          </button>
+        </div>
+      </div>
+      <div
+        class="relative m-10 flex flex-col overflow-hidden rounded-lg shadow-md"
+      >
+        <div class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl">
+          <img
+            class="object-cover w-full"
+            src="/assets/American-Eskimo.jpeg"
+            alt="product image"
+          />
+        </div>
+        <div class="mt-4 px-5 pb-5">
+          <a href="#">
+            <h5 class="text-lg tracking-tight text-slate-900">
+              American-Eskimo
+            </h5>
+          </a>
+          <div class="mt-2 mb-3 flex items-center justify-between">
+            <p>
+              <span class="text-xl font-bold text-slate-900">N305,000</span>
+            </p>
+          </div>
+          <button
+            class="flex items-center justify-center w-full rounded-md bg-black-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-black-900"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="mr-2 h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+              />
+            </svg>
+            Add to cart
+          </button>
+        </div>
+      </div>
+
+      <div class="relative m-10 flex flex-col overflow-hidden rounded-lg">
+        <div class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl">
+          <img
+            class="object-cover w-full"
+            src="/assets/Border-Collie.jpeg"
+            alt="product image"
+          />
+        </div>
+        <div class="mt-4 px-5 pb-5">
+          <a href="#">
+            <h5 class="text-lg tracking-tight text-slate-900">Border Collie</h5>
+          </a>
+          <div class="mt-2 mb-3 flex items-center justify-between">
+            <p>
+              <span class="text-xl font-bold text-slate-900">N305,000</span>
+            </p>
+          </div>
+          <button
+            class="flex items-center justify-center w-full rounded-md bg-black-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-black-900"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="mr-2 h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+              />
+            </svg>
+            Add to cart
           </button>
         </div>
       </div>
     </section>
+
+    <script src="/dist/app.js"></script>
   </body>
 </html>
