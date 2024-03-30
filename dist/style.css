@@ -550,6 +550,14 @@ video {
   position: relative;
 }
 
+.sticky{
+  position: sticky;
+}
+
+.top-0{
+  top: 0px;
+}
+
 .float-left{
   float: left;
 }
