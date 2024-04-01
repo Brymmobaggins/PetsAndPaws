@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PetAndPaws</title>
+    <title>Shopping Cart</title>
     <link rel="stylesheet" href="style.css" />
     <!-- favicon -->
     <link
@@ -15,7 +15,7 @@
   </head>
   <body class="font-Tauri">
     <nav
-      class="mobile:text-sm tablet:text-base laptop:text-lg fixed w-full z-10 top-0 bg-alabaster-300"
+      class="mobile:text-sm tablet:text-base laptop:text-lg w-full bg-alabaster-300"
     >
       <div class="max-w-6xl mx-auto">
         <div class="flex justify-between">
@@ -109,8 +109,22 @@
       </div>
     </nav>
 
-    <main>
-      <div class="container px-6-m-aut"></div>
-    </main>
+    <div
+      id="product-container"
+      class="max-w-xl justify-around m-auto mt-10 border-2 border-alabaster-400"
+    >
+      <div
+        class="product-header w-full max-w-xl flex justify-start divide-black-800"
+      >
+        <h5 class="w-[45%]">Product</h5>
+        <h5 class="price">Price</h5>
+        <h5 class="flex items-center w-[30%]">Quantity</h5>
+        <h5 class="flex items-center w-[10%]">Subtotal</h5>
+      </div>
+
+      <div class="products"></div>
+    </div>
+
+    <script src="/dist/app.js"></script>
   </body>
 </html>

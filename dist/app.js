@@ -55,6 +55,7 @@ function setItems(product) {
       [product.tag]: product
     }
   }
+  //  convert from JavaScript object to JSON and set to local Storage
   localStorage.setItem("productInCart", JSON.stringify(cartItems))
 }
 
@@ -68,6 +69,8 @@ function onloadsCartNumbers() {
   }
 }
 onloadsCartNumbers()
+// call display cart
+displayCart()
 
 function totalCost(product) {
 
@@ -80,18 +83,44 @@ function totalCost(product) {
     localStorage.setItem("totalCost", product.price);
   }
 }
+function displayCart() {
+  let cartItems = localStorage.getItem('productInCart')
+
+  // convert from JSON object ot JavaScript object
+  cartItems = JSON.parse(cartItems)
+
+  let productContainer = document.querySelector(".products")
+  if (cartItems && productContainer) {
+    productContainer.innerHTML = ""
+    Object.values(cartItems).map(item => {
+      productContainer.innerHTML += `
+      <div class="product">
+       <img src=${item.img} alt="${item.name}">
+      <span>${item.name}</span>
+      <span>${item.inCart}</span>
+      </div>
+      <div>N${item.price}</div>`
+    })
+  }
+
+  console.log(cartItems)
+}
 // Product data
 const products =
   [{
     id: 1,
+    img: "Bedlington Terrier.webp",
     name: "Belington",
     price: 40000,
     description: "Belington",
     inCart: 0,
-    tag: "Belington"
+    tag: "Belington",
+
+
   },
   {
     id: 2,
+    img: "Alaskan-Malamute.webp",
     name: "Alaskan Malamute",
     price: 750000,
     description: "Alaskan Malamute",
@@ -100,6 +129,7 @@ const products =
   },
   {
     id: 3,
+    img: "assets/American-Eskimo.jpeg",
     name: "American Eskimo",
     price: 405000,
     description: "American Eskimo",
@@ -128,7 +158,10 @@ const products =
     price: 805000,
     description: "Shiba Inu",
     inCart: 0,
-    tag: "ShibaInu"
+    tag: "ShibaInu",
+    img: "Shiba-Inu-2.webp"
+
+
   },
   {
     id: 7,
@@ -136,7 +169,8 @@ const products =
     price: 650000,
     description: "Rottweiler",
     inCart: 0,
-    tag: "Rottweiler"
+    tag: "Rottweiler",
+    img: "Rottweiler-4.avif"
   },
   {
     id: 8,
@@ -144,7 +178,8 @@ const products =
     price: 465000,
     description: "Dalmatian",
     inCart: 0,
-    tag: "Dalmatian"
+    tag: "Dalmatian",
+    img: "dalmatian-5.jpeg"
   }
   ]
 

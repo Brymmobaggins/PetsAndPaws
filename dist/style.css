@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Tauri&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Tauri&display=swap");
 
 /*
 ! tailwindcss v3.4.1 | MIT License | https://tailwindcss.com
@@ -546,40 +546,26 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.container{
-  width: 100%;
+.product {
+  width: 45%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+  border: 1px solid lightgrey;
 }
 
-@media (min-width: 320px){
-  .container{
-    max-width: 320px;
-  }
-}
-
-@media (min-width: 640px){
-  .container{
-    max-width: 640px;
-  }
-}
-
-@media (min-width: 1024px){
-  .container{
-    max-width: 1024px;
-  }
-}
-
-@media (min-width: 1280px){
-  .container{
-    max-width: 1280px;
-  }
-}
-
-.fixed{
-  position: fixed;
+.price{
+  display: flex;
+  align-items: center;
 }
 
 .relative{
   position: relative;
+}
+
+.sticky{
+  position: sticky;
 }
 
 .top-0{
@@ -622,6 +608,10 @@ video {
 
 .mt-1{
   margin-top: 0.25rem;
+}
+
+.mt-10{
+  margin-top: 2.5rem;
 }
 
 .mt-2{
@@ -672,6 +662,18 @@ video {
   width: 1.5rem;
 }
 
+.w-\[10\%\]{
+  width: 10%;
+}
+
+.w-\[30\%\]{
+  width: 30%;
+}
+
+.w-\[45\%\]{
+  width: 45%;
+}
+
 .w-full{
   width: 100%;
 }
@@ -696,12 +698,20 @@ video {
   align-items: center;
 }
 
+.justify-start{
+  justify-content: flex-start;
+}
+
 .justify-center{
   justify-content: center;
 }
 
 .justify-between{
   justify-content: space-between;
+}
+
+.justify-around{
+  justify-content: space-around;
 }
 
 .space-x-1 > :not([hidden]) ~ :not([hidden]){
@@ -714,6 +724,11 @@ video {
   --tw-space-x-reverse: 0;
   margin-right: calc(1rem * var(--tw-space-x-reverse));
   margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.divide-black-800 > :not([hidden]) ~ :not([hidden]){
+  --tw-divide-opacity: 1;
+  border-color: rgb(69 69 69 / var(--tw-divide-opacity));
 }
 
 .overflow-hidden{
@@ -740,19 +755,14 @@ video {
   border-width: 2px;
 }
 
+.border-alabaster-400{
+  --tw-border-opacity: 1;
+  border-color: rgb(196 196 197 / var(--tw-border-opacity));
+}
+
 .bg-alabaster-300{
   --tw-bg-opacity: 1;
   background-color: rgb(212 212 213 / var(--tw-bg-opacity));
-}
-
-.bg-alabaster-600{
-  --tw-bg-opacity: 1;
-  background-color: rgb(148 148 149 / var(--tw-bg-opacity));
-}
-
-.bg-alabaster-800{
-  --tw-bg-opacity: 1;
-  background-color: rgb(122 122 123 / var(--tw-bg-opacity));
 }
 
 .bg-black-700{
@@ -808,11 +818,6 @@ video {
 .py-5{
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
-}
-
-.px-6{
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
 }
 
 .pb-2{
