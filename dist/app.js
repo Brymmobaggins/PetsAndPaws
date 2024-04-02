@@ -93,13 +93,16 @@ function displayCart() {
   if (cartItems && productContainer) {
     productContainer.innerHTML = ""
     Object.values(cartItems).map(item => {
-      productContainer.innerHTML += `
-      <div class="product">
-       <img src=${item.img} alt="${item.name}">
-      <span>${item.name}</span>
-      <span>${item.inCart}</span>
-      </div>
-      <div>N${item.price}</div>`
+      productContainer.innerHTML +=
+        `<div class="product">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 hover:text-red-600 cursor-pointer">
+          <path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+        </svg>
+        
+          <img src="/images/${item.img}" alt="${item.name}">
+         <span>N${item.price}</span>
+         <span class="quantity">${item.inCart}</span>
+      </div>`
     })
   }
 
@@ -129,12 +132,13 @@ const products =
   },
   {
     id: 3,
-    img: "assets/American-Eskimo.jpeg",
+    img: "American-Eskimo.jpeg",
     name: "American Eskimo",
     price: 405000,
     description: "American Eskimo",
     inCart: 0,
     tag: "AmericanEskimo"
+
   },
   {
     id: 4,
@@ -142,7 +146,8 @@ const products =
     price: 305000,
     description: "Border Collie",
     inCart: 0,
-    tag: "BorderCollie"
+    tag: "BorderCollie",
+    img: "Border-Collie.jpeg"
   },
   {
     id: 5,
@@ -150,7 +155,8 @@ const products =
     price: 505000,
     description: "Alaskan Malamute",
     inCart: 0,
-    tag: "AlaskaMalamute"
+    tag: "AlaskaMalamute",
+    img: "JackRusell-terrier.webp"
   },
   {
     id: 6,
