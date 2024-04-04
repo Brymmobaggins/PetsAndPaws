@@ -14,6 +14,7 @@ for (let i = 0; i < addtoCartBtn.length; i++) {
   addtoCartBtn[i].addEventListener('click', () => {
     cartNumber(products[i])
     totalCost(products[i])
+    confirmationMessage()
   });
 }
 
@@ -83,31 +84,72 @@ function totalCost(product) {
     localStorage.setItem("totalCost", product.price);
   }
 }
+
+// function toLocaleString({ item }) {
+//   return Intl.NumberFormat("en-NG", {
+//     style: "currency",
+//     currency: "NGN",
+//   }).format(item)
+// }
+// console.log(toLocaleString(405000))
+
+
 function displayCart() {
   let cartItems = localStorage.getItem('productInCart')
 
-  // convert from JSON object ot JavaScript object
+  // convert from JSON object to JavaScript object
   cartItems = JSON.parse(cartItems)
 
-  let productContainer = document.querySelector(".products")
-  if (cartItems && productContainer) {
-    productContainer.innerHTML = ""
+  const itemContainer = document.querySelector(".item-list")
+  const totalContainer = document.querySelector(".total-container")
+  const cartCost = localStorage.getItem("totalCost")
+  if (cartItems && itemContainer && totalContainer) {
+    itemContainer.innerHTML = ""
     Object.values(cartItems).map(item => {
-      productContainer.innerHTML +=
-        `<div class="product">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 hover:text-red-600 cursor-pointer">
-          <path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
-        </svg>
-        
-          <img src="/images/${item.img}" alt="${item.name}">
-         <span>N${item.price}</span>
-         <span class="quantity">${item.inCart}</span>
-      </div>`
+      itemContainer.innerHTML +=
+        `<tr class="*:p-3 text-sm tracking-tight text-gray-600 even:bg-alabaster-100 font-normal">
+            <td>${item.name}</td>
+            <td height=50 width=100><img src="/images/${item.img}" alt="${item.name}"></td>
+            <td><span>&#x20A6;</span>${item.price}</td>
+             <td class="text-center"><span class="border border-1 border-alabaster-300">${item.inCart}</span> </td>
+           <td class=""><span>&#x20A6;</span>${item.inCart * item.price}</td>
+           <td class="text-center"><a href="#" class="text-red-500 cursor-pointer">X</td>
+        </tr>
+      `
     })
+
+    totalContainer.innerHTML += `
+    <div class="flex justify-end m-auto w-full py-2 *:mx-2 bg-alabaster-200">
+        <h4 class="basket-total bg-alasbaster-700">
+             Basket Total 
+        </h4>
+        <h4 class="basket-total bg-alasbaster-700">
+            <span>&#x20A6;</span>${cartCost}
+       </h4>
+    </div>
+     `
   }
+
 
   console.log(cartItems)
 }
+
+
+
+
+// show confrimation message
+function confirmationMessage() {
+  const confirmationMessage = document.querySelector(".message")
+  confirmationMessage.style.display = "block"
+  
+  //  hide a message after a delay
+  setTimeout(() => {
+    confirmationMessage.style.display = "none"
+  }, 3000) // hides message after three seconds
+}
+
+
+
 // Product data
 const products =
   [{
@@ -125,7 +167,7 @@ const products =
     id: 2,
     img: "Alaskan-Malamute.webp",
     name: "Alaskan Malamute",
-    price: 750000,
+    price: 50000,
     description: "Alaskan Malamute",
     inCart: 0,
     tag: "AlasKanMalamute"

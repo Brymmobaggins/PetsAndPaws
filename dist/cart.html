@@ -15,7 +15,8 @@
   </head>
   <body class="font-Tauri">
     <nav
-      class="mobile:text-sm tablet:text-base laptop:text-lg w-full bg-alabaster-300"
+      class="mobile:text-sm tablet:text-base laptop:text-lg w-full bg-alabaster-100"
+      id="cart"
     >
       <div class="max-w-6xl mx-auto">
         <div class="flex justify-between">
@@ -66,7 +67,8 @@
 
           <!-- seconday nav -->
           <div class="hidden tablet:flex text-center space-x-1">
-            <a href="cart.html" class="py-5 px-0" id="">
+            
+            <a href="cart.html" class="py-5 px-0">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -108,23 +110,26 @@
         >
       </div>
     </nav>
-
-    <h1 class="text-center text-2xl mt-10 mb-5">Shopping Cart</h1>
-    <div
-      id="product-container"
-      class="max-w-xl justify-around m-auto rounded border-2 border-alabaster-200"
+    <table
+      class="border-2 border-alabaster-300 w-full max-w-2xl m-auto mt-6 border-collapse rounded-md"
     >
-      <div
-        class="product-header w-full flex justify-between px-4 text-base bg-alabaster-200"
-      >
-        <h5 class="bg-alabaster-700 w-[45%]">Product</h5>
-        <h5 class="flex items-center bg-alabaster-500 w-[15%]">Price</h5>
-        <h5 class="flex items-center w-[20%]">Quantity</h5>
-        <h5 class="flex items-center w-[10%]">Subtotal</h5>
-      </div>
+      <thead>
+        <tr
+          class="text-left border border-b-2 border-alabaster-300 *:py-1 *:px-3 text-base font-normal"
+        >
+          <th colspan="2">Items</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th class="">Remove</th>
+        </tr>
+      </thead>
+      <tbody class="item-list"></tbody>
+    </table>
 
-      <div class="products"></div>
-    </div>
+    <div
+      class="total-container mt-2 border border-1 border-alabaster-300 max-w-2xl m-auto"
+    ></div>
 
     <script src="/dist/app.js"></script>
   </body>
