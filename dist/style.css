@@ -627,14 +627,6 @@ video {
   display: block;
 }
 
-.inline-block{
-  display: inline-block;
-}
-
-.inline{
-  display: inline;
-}
-
 .flex{
   display: flex;
 }
@@ -667,14 +659,6 @@ video {
   height: 100vh;
 }
 
-.h-9{
-  height: 2.25rem;
-}
-
-.h-4{
-  height: 1rem;
-}
-
 .w-5{
   width: 1.25rem;
 }
@@ -683,20 +667,12 @@ video {
   width: 1.5rem;
 }
 
-.w-full{
-  width: 100%;
-}
-
-.w-9{
-  width: 2.25rem;
-}
-
-.w-4{
-  width: 1rem;
-}
-
 .w-7{
   width: 1.75rem;
+}
+
+.w-full{
+  width: 100%;
 }
 
 .max-w-2xl{
@@ -713,10 +689,6 @@ video {
 
 .border-collapse{
   border-collapse: collapse;
-}
-
-.cursor-pointer{
-  cursor: pointer;
 }
 
 .grid-cols-1{
@@ -753,10 +725,6 @@ video {
   --tw-space-x-reverse: 0;
   margin-right: calc(1rem * var(--tw-space-x-reverse));
   margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
-}
-
-.self-center{
-  align-self: center;
 }
 
 .overflow-hidden{
@@ -817,13 +785,14 @@ video {
   background-color: rgb(255 237 231 / var(--tw-bg-opacity));
 }
 
+.bg-waikawa-gray-300{
+  --tw-bg-opacity: 1;
+  background-color: rgb(185 207 232 / var(--tw-bg-opacity));
+}
+
 .object-cover{
   -o-object-fit: cover;
      object-fit: cover;
-}
-
-.p-1{
-  padding: 0.25rem;
 }
 
 .px-0{
@@ -937,9 +906,9 @@ video {
   color: rgb(79 79 79 / var(--tw-text-opacity));
 }
 
-.text-red-500{
+.text-red-400{
   --tw-text-opacity: 1;
-  color: rgb(255 35 35 / var(--tw-text-opacity));
+  color: rgb(255 87 87 / var(--tw-text-opacity));
 }
 
 .text-waikawa-gray-700{
@@ -950,16 +919,6 @@ video {
 .text-white{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.text-red-400{
-  --tw-text-opacity: 1;
-  color: rgb(255 87 87 / var(--tw-text-opacity));
-}
-
-.text-red-300{
-  --tw-text-opacity: 1;
-  color: rgb(255 148 148 / var(--tw-text-opacity));
 }
 
 .shadow-md{
@@ -984,8 +943,29 @@ video {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.showMessage{
-  display: block;
+.tooltip {
+  position: relative;
+  display: inline-block;
+  /* border-bottom: 1px dotted black; */
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 80px;
+  /* color: #fff; */
+  text-align: center;
+  border-radius: 6px;
+  /* padding: 5px 0; */
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
 
 .\*\:mx-2 > *{
