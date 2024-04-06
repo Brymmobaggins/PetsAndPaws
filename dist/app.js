@@ -254,8 +254,7 @@ function displayCart() {
     // document.querySelector("table").style.display = "none"
     document.querySelector(".total-container").innerHTML = `
     <div class=" border border-1 bg-alabaster-100">
-      <h1>Shopping Cart</h1>
-      <p>Your cart is empty</p>
+      <h5>Your cart is empty</h5>
       <a href="index.html">Return to shop</a>
 
     </div>
@@ -283,7 +282,8 @@ function confirmationMessage() {
   //  hide a message after a delay
   setTimeout(() => {
     confirmationMessage.style.display = "none"
-  }, 3000) // hides message after three seconds
+    // hides message after one second
+  }, 1000) 
 }
 
 
