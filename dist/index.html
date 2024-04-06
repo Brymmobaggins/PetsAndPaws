@@ -12,6 +12,7 @@
       sizes="32x32"
       href="/images/favicon-img.png"
     />
+    <script defer src="./app.js"></script> <!-- add `defer` attribute -->
   </head>
   <body class="font-Tauri">
     <nav
@@ -66,8 +67,10 @@
 
           <!-- seconday nav -->
           <div class="hidden tablet:flex text-center space-x-1">
-            <div class="hidden message font-normal">
-              <h5 class="text-sm">Product added to cart!</h5>
+            <div
+              class="message hidden font-normal h-5 absolute right-10 top-0"
+            >
+              <span class="block text-sm text-waikawa-gray-700">Product added to cart!</span>
             </div>
             <a href="cart.html" class="py-5 px-0" id="">
               <svg
@@ -468,6 +471,6 @@
 
     <section id="products"></section>
 
-    <script src="/dist/app.js"></script>
+
   </body>
 </html>

@@ -12,11 +12,12 @@
       sizes="32x32"
       href="/images/favicon-img.png"
     />
+    <script defer src="./app.js"></script> 
   </head>
   <body class="font-Tauri">
     <nav
-      class="mobile:text-sm tablet:text-base laptop:text-lg w-full bg-alabaster-100"
-      id="cart"
+      class="mobile:text-sm tablet:text-base laptop:text-lg w-full bg-alabaster-100 sticky z-10 top-0"
+      id=""
     >
       <div class="max-w-6xl mx-auto">
         <div class="flex justify-between">
@@ -121,7 +122,7 @@
           <th>Price</th>
           <th>Quantity</th>
           <th>Total</th>
-          <th class="">Remove</th>
+          <th class="delete-item">Remove</th>
         </tr>
       </thead>
       <tbody class="item-list"></tbody>
@@ -131,6 +132,6 @@
       class="total-container mt-2 border border-1 border-alabaster-300 max-w-2xl m-auto"
     ></div>
 
-    <script src="/dist/app.js"></script>
+
   </body>
 </html>
