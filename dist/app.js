@@ -240,7 +240,7 @@ function displayCart() {
     })
 
     totalContainer.innerHTML += `
-    <div class="flex justify-end m-auto w-full py-2 *:mx-2 bg-alabaster-200">
+    <div class="flex justify-end m-auto w-full py-2 *:mx-2 bg-alabaster-400">
         <h4 class="basket-total bg-alasbaster-700">
              Basket Total 
         </h4>
@@ -253,9 +253,19 @@ function displayCart() {
     document.querySelector("table").remove()
     // document.querySelector("table").style.display = "none"
     document.querySelector(".total-container").innerHTML = `
-    <div class=" border border-1 bg-alabaster-100">
-      <h5>Your cart is empty</h5>
-      <a href="index.html">Return to shop</a>
+    <div class="border border-1 *:mt-3">
+       <div class="text-center text-base">
+          <h5>Your cart is currently empty</h5>
+       </div>
+       <div class="flex h-[200px] item-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="red" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-25 h-[200px]">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+         </svg>
+       </div>
+       <div class="text-center text-xs font-light">
+          <span>You may check out some available product and buy in the shop</span>
+       </div>
+      <a href="index.html" class="decoration border-2 rounded-full bg-alabaster-400 hover:bg-alabaster-300 text-center text-sm block w-1/4 mb-2 m-auto py-1">Return to shop</a>
 
     </div>
     `
@@ -283,7 +293,7 @@ function confirmationMessage() {
   setTimeout(() => {
     confirmationMessage.style.display = "none"
     // hides message after one second
-  }, 1000) 
+  }, 1000)
 }
 
 
