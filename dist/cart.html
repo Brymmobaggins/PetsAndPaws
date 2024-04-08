@@ -69,8 +69,10 @@
 
           <!-- seconday nav -->
           <div class="hidden tablet:flex text-center space-x-1">
-            <div class="message hidden font-normal h-5 absolute right-10 top-0">
-              <span class="block text-sm text-waikawa-gray-700"
+            <div
+              class="message hidden font-normal h-5 absolute right-10 top-[60%]"
+            >
+              <span class="block font-light text-sm text-gray-600 relative"
                 >Product added to Basket!</span
               >
             </div>
@@ -89,11 +91,11 @@
                   />
                 </svg>
                 <span
-                  class="tooltiptext bg-waikawa-gray-200 text-gray-600 text-sm"
+                  class="tooltiptext bg-[#ffff] text-gray-600 text-sm font-normal py-1.5 mt-0.5"
                   >Basket</span
                 >
                 <span
-                  class="py-2 px-2 badge bg-[#fff] text-sm font-bold text-gray-950"
+                  class="py-0.5 px-1 badge bg-red-400 text-sm text-white font-bold border-0"
                   id="items-count"
                   >0</span
                 >
@@ -128,28 +130,33 @@
         >
       </div>
     </nav>
-    <div class="font-bold text-xl mt-3 text-center">
-      <h1>Shopping Cart</h1>
-    </div>
-    <table
-      class="border-2 border-alabaster-300 w-full max-w-2xl m-auto mt-6 border-collapse rounded-md"
-    >
-      <thead>
-        <tr
-          class="text-left border border-b-2 border-alabaster-300 *:py-1 *:px-3 text-base font-normal"
-        >
-          <th colspan="2">Items</th>
-          <th>Price</th>
-          <th>Quantity</th>
-          <th>Total</th>
-          <th class="delete-item">Remove</th>
-        </tr>
-      </thead>
-      <tbody class="item-list"></tbody>
-    </table>
+    <!-- shopping cart -->
+    <div class="">
+      <div
+        class="w-1/2 m-auto font-bold text-3xl text-amethyst-600 mt-3 text-start"
+      >
+        <h1>Your Basket</h1>
+      </div>
+      <table
+        class="border-2 border-alabaster-300 w-full max-w-2xl m-auto mt-3 border-collapse rounded-md"
+      >
+        <thead>
+          <tr
+            class="text-left border border-b-2 border-alabaster-300 *:py-1 *:px-3 text-base font-normal"
+          >
+            <th colspan="2">Items</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th class="delete-item">Remove</th>
+          </tr>
+        </thead>
+        <tbody class="item-list"></tbody>
+      </table>
 
-    <div
-      class="total-container mt-2 border border-1 border-alabaster-300 max-w-2xl m-auto"
-    ></div>
+      <div
+        class="total-container mt-2 border border-1 border-alabaster-300 max-w-2xl m-auto"
+      ></div>
+    </div>
   </body>
 </html>
