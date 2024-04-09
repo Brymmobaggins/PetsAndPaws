@@ -8,16 +8,24 @@ btn.addEventListener('click', () => {
   menu.classList.toggle('hidden');
 });
 
+// fetch("products.json")
+//   .then((response) => response.json())
+//   .then((products) => {
+//     // Process the product inventory data
+//     console.log(products);
+//     // Loop through the add to cart buttons
 
-// Loop through the add to cart buttons
+//   });
+
 for (let i = 0; i < addtoCartBtn.length; i++) {
   addtoCartBtn[i].addEventListener('click', () => {
     cartNumber(products[i])
     totalCost(products[i])
+    // totalWithFlatRate(products[i])
+    withFlatRate()
     confirmationMessage()
   });
 }
-
 
 const products =
   [{
@@ -44,7 +52,7 @@ const products =
     id: 3,
     img: "American-Eskimo.jpeg",
     name: "American Eskimo",
-    price: 405000,
+    price: 85000,
     description: "American Eskimo",
     inCart: 0,
     tag: "AmericanEskimo"
@@ -53,7 +61,7 @@ const products =
   {
     id: 4,
     name: "Border Collie",
-    price: 305000,
+    price: 90000,
     description: "Border Collie",
     inCart: 0,
     tag: "BorderCollie",
@@ -62,7 +70,7 @@ const products =
   {
     id: 5,
     name: "Jack Rusell Terrier",
-    price: 505000,
+    price: 85000,
     description: "Alaskan Malamute",
     inCart: 0,
     tag: "AlaskaMalamute",
@@ -71,7 +79,7 @@ const products =
   {
     id: 6,
     name: "Shiba Inu",
-    price: 805000,
+    price: 120000,
     description: "Shiba Inu",
     inCart: 0,
     tag: "ShibaInu",
@@ -82,7 +90,7 @@ const products =
   {
     id: 7,
     name: "Rottweiler",
-    price: 650000,
+    price: 130000,
     description: "Rottweiler",
     inCart: 0,
     tag: "Rottweiler",
@@ -91,14 +99,13 @@ const products =
   {
     id: 8,
     name: "Dalmatian",
-    price: 465000,
+    price: 150000,
     description: "Dalmatian",
     inCart: 0,
     tag: "Dalmatian",
     img: "dalmatian-5.jpeg"
   }
   ]
-
 
 // Update cart number and items
 function cartNumber(product) {
@@ -113,7 +120,6 @@ function cartNumber(product) {
   }
   setItems(product)
 }
-
 
 // Set items in localStorage
 function setItems(product) {
@@ -137,8 +143,6 @@ function setItems(product) {
   localStorage.setItem("productInCart", JSON.stringify(cartItems))
 }
 
-
-
 // On load, update cart numbers
 function onloadsCartNumbers() {
   let productNumbers = localStorage.getItem('cartNumbers');
@@ -151,69 +155,40 @@ onloadsCartNumbers()
 displayCart()
 
 
-
 function totalCost(product) {
   let cartCost = localStorage.getItem("totalCost");
+  // console.log(cartCost)
   if (cartCost != null) {
     cartCost = parseInt(cartCost);
-    localStorage.setItem("totalCost", cartCost + product.price)
+    localStorage.setItem("totalCost", cartCost + product.price);
   } else {
     localStorage.setItem("totalCost", product.price);
   }
 }
 
+function withFlatRate() {
+  let rate = 3000
 
+  let totalCost = localStorage.getItem("totalCost");
+  totalCost = parseInt(totalCost);
 
-// function clearItem(product) {
-//   let cartItems = localStorage.getItem("productInCart");
-//   cartItems = JSON.parse(cartItems);
+  let costWithFlatRate = totalCost + rate;
 
-//   if (cartItems[product.tag] != undefined) {
-//     cartItems[product.tag];
-//     localStorage.setItem("productInCart", JSON.stringify(cartItems));
-//     displayCart();
-//   }
-// }
+  console.log("my totals cost is", costWithFlatRate)
+  localStorage.setItem("costWithFlatRate", costWithFlatRate);
+}
 
-
-// document.querySelector(".item-list").addEventListener("click", (e) => {
-//   deleteItem(e.target)
-// })
-// function deleteItem(el) {
-//   if (el.classList.contains("delete")) {
-//     el.parentElement.parentElement.remove()
-//   }
-// }
-
-// function deleteItem(el) {
-//   if (el.classList.contains("delete")) {
-//     let product = el.parentElement.parentElement;
-//     product.remove();
-
-//     let cartItems = localStorage.getItem("productInCart");
-//     cartItems = JSON.parse(cartItems);
-
-//     let productTag = product.querySelector(".product-title");
-//     // console.log(productTag)
-
-//     if (cartItems[productTag] != undefined) {
-//       delete cartItems[productTag];
-//       localStorage.setItem("productInCart", JSON.stringify(cartItems));
-//     }
-//   }
-// }
-
-
+ 
 
 function displayCart() {
   let cartItems = localStorage.getItem('productInCart')
-
   // convert from JSON object to JavaScript object
   cartItems = JSON.parse(cartItems)
 
   const itemContainer = document.querySelector(".item-list")
   const totalContainer = document.querySelector(".total-container")
   const cartCost = localStorage.getItem("totalCost")
+  const costWithFlatRate = localStorage.getItem("costWithFlatRate")
   if (cartItems && itemContainer && totalContainer) {
     itemContainer.innerHTML = ""
     Object.values(cartItems).map(item => {
@@ -229,7 +204,7 @@ function displayCart() {
              </td>
            <td class=""><span>&#x20A6;</span>${item.inCart * item.price}</td>
            <td class="text-center">
-           
+
               <svg xmlns="http://www.w3.org/2000/svg" fill="#ff9494" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-6 text-red-400 hover:text-red-400 hover:cursor-pointer">
                <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
               </svg>
@@ -240,14 +215,29 @@ function displayCart() {
     })
 
     totalContainer.innerHTML += `
-    <div class="flex justify-end m-auto w-full py-2 *:mx-2 bg-alabaster-400">
-        <h4 class="basket-total bg-alasbaster-700">
-             Basket Total 
-        </h4>
-        <h4 class="basket-total bg-alasbaster-700">
-            <span>&#x20A6;</span>${cartCost}
-       </h4>
-    </div>
+    <div class="flex justify-end border-2 border-fairPink-400">
+    <div class="w-1/2 py-2 *:mx-2 border-2 border-red-400 ">
+        <div class="flex justify-between">
+            <h4 class="basket-total bg-alasbaster-700">
+              Subtotal
+            </h4>
+            <h4 class="basket-total bg-alasbaster-700">
+             <span>&#x20A6;</span>${cartCost}
+            </h4>
+        </div>
+
+        <div class="flex justify-between">
+           <h4>Shipping Fee</h4>
+           <h4>Flat rate: <span>&#x20A6;</span>3,000</h4>
+        </div>
+        <div class="flex justify-between">
+           <h4>Total</h4>
+           <h4><span>&#x20A6;</span>${costWithFlatRate}</h4>
+        </div>
+
+      </div>
+      </div>
+
      `
   } else {
     document.querySelector("table").remove()
@@ -255,7 +245,7 @@ function displayCart() {
     document.querySelector(".total-container").innerHTML = `
     <div class="border border-1 *:mt-3">
        <div class="text-center text-base">
-          <h5>Your cart is currently empty</h5>
+          <h4>Your cart is currently empty</h4>
        </div>
        <div class="flex h-[200px] item-center justify-center">
          <img src="/images/empty-cart-img.jpeg" alt="">       
@@ -272,9 +262,9 @@ function displayCart() {
   console.log(cartItems)
 }
 
-// document.querySelector("#remove-item").addEventListener("click", function () {
-//   document.querySelector("tbody").remove()
-// })
+document.querySelector("#remove-item").addEventListener("click", function () {
+  document.querySelector("tbody").remove()
+})
 
 
 
