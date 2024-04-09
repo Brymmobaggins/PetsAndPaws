@@ -178,7 +178,7 @@ function withFlatRate() {
   localStorage.setItem("costWithFlatRate", costWithFlatRate);
 }
 
- 
+
 
 function displayCart() {
   let cartItems = localStorage.getItem('productInCart')
@@ -215,29 +215,31 @@ function displayCart() {
     })
 
     totalContainer.innerHTML += `
-    <div class="flex justify-end border-2 border-fairPink-400">
-    <div class="w-1/2 py-2 *:mx-2 border-2 border-red-400 ">
-        <div class="flex justify-between">
+    <div class="flex justify-end border-1">
+      <div class="w-1/2 py-2 *:mx-2 *:pt-1">
+          <div class="flex justify-between">
             <h4 class="basket-total bg-alasbaster-700">
               Subtotal
             </h4>
             <h4 class="basket-total bg-alasbaster-700">
              <span>&#x20A6;</span>${cartCost}
             </h4>
-        </div>
+          </div><hr/>
 
-        <div class="flex justify-between">
-           <h4>Shipping Fee</h4>
-           <h4>Flat rate: <span>&#x20A6;</span>3,000</h4>
+          <div class="flex justify-between">
+            <h4>Shipping Fee</h4>
+            <h4>Flat rate: <span>&#x20A6;</span>3,000</h4>
+          </div><hr/>
+          <div class="flex justify-between text-base font-sm">
+            <h4>Total</h4>
+            <h4><span>&#x20A6;</span>${costWithFlatRate}</h4>
+          </div><hr/>
         </div>
-        <div class="flex justify-between">
-           <h4>Total</h4>
-           <h4><span>&#x20A6;</span>${costWithFlatRate}</h4>
         </div>
-
-      </div>
-      </div>
-
+        <div class="flex text-center mt-1 p-2 *:w-1/2 ">
+          <a href="index.html" class="border-4 border-double border-amethyst-600 rounded-full text-sm py-1 mx-1">Cotinue Shopping</a>
+          <a href="#" class="border-2 rounded-full bg-amethyst-600 hover:bg-amethyst-700 text-white text-sm py-1 mx-1">Checkout</a>
+        </div>
      `
   } else {
     document.querySelector("table").remove()
@@ -265,10 +267,6 @@ function displayCart() {
 document.querySelector("#remove-item").addEventListener("click", function () {
   document.querySelector("tbody").remove()
 })
-
-
-
-
 
 
 

@@ -592,6 +592,11 @@ video {
   margin-right: auto;
 }
 
+.mx-1{
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
+
 .mb-1{
   margin-bottom: 0.25rem;
 }
@@ -784,8 +789,20 @@ video {
   border-width: 2px;
 }
 
+.border-4{
+  border-width: 4px;
+}
+
 .border-b-2{
   border-bottom-width: 2px;
+}
+
+.border-double{
+  border-style: double;
+}
+
+.border-none{
+  border-style: none;
 }
 
 .border-alabaster-300{
@@ -793,24 +810,24 @@ video {
   border-color: rgb(212 212 213 / var(--tw-border-opacity));
 }
 
-.border-fairPink-400{
-  --tw-border-opacity: 1;
-  border-color: rgb(255 185 162 / var(--tw-border-opacity));
-}
-
-.border-red-400{
-  --tw-border-opacity: 1;
-  border-color: rgb(255 87 87 / var(--tw-border-opacity));
-}
-
 .border-red-800{
   --tw-border-opacity: 1;
   border-color: rgb(177 3 3 / var(--tw-border-opacity));
 }
 
-.border-red-500{
+.border-gray-500{
   --tw-border-opacity: 1;
-  border-color: rgb(255 35 35 / var(--tw-border-opacity));
+  border-color: rgb(109 109 109 / var(--tw-border-opacity));
+}
+
+.border-amethyst-500{
+  --tw-border-opacity: 1;
+  border-color: rgb(167 62 220 / var(--tw-border-opacity));
+}
+
+.border-amethyst-600{
+  --tw-border-opacity: 1;
+  border-color: rgb(151 53 196 / var(--tw-border-opacity));
 }
 
 .bg-\[\#ffff\]{
@@ -840,6 +857,10 @@ video {
 .object-cover{
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.p-2{
+  padding: 0.5rem;
 }
 
 .px-0{
@@ -1060,6 +1081,11 @@ video {
   border-radius: 50%;
 }
 
+.\*\:mx-1 > *{
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
+
 .\*\:mx-2 > *{
   margin-left: 0.5rem;
   margin-right: 0.5rem;
@@ -1067,6 +1093,10 @@ video {
 
 .\*\:mt-3 > *{
   margin-top: 0.75rem;
+}
+
+.\*\:w-1\/2 > *{
+  width: 50%;
 }
 
 .\*\:p-3 > *{
@@ -1081,6 +1111,24 @@ video {
 .\*\:py-1 > *{
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
+}
+
+.\*\:py-4 > *{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.\*\:py-2 > *{
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.\*\:pt-2 > *{
+  padding-top: 0.5rem;
+}
+
+.\*\:pt-1 > *{
+  padding-top: 0.25rem;
 }
 
 .even\:bg-alabaster-100:nth-child(even){
@@ -1106,6 +1154,11 @@ video {
 .hover\:bg-alabaster-300:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(212 212 213 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-amethyst-700:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(126 41 162 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-amethyst-800:hover{
