@@ -14,149 +14,174 @@
     />
     <script defer src="./app.js"></script>
   </head>
-  <body class="font-Tauri">
-    <nav
-      class="mobile:text-sm tablet:text-base laptop:text-lg sticky z-10 w-full top-0 bg-alabaster-100"
-    >
-      <div
-        class="max-w-[1200px] bg-alabaster-100 mx-auto h-28 flex justify-center px-6"
+  <body class="font-Tauri h-screen w-screen">
+    <main class="">
+      <nav
+        class="mobile:text-sm tablet:text-base laptop:text-lg sticky z-10 w-full top-0 bg-alabaster-100"
       >
-        <div class="flex justify-between items-center w-full">
-          <div class="flex space-x-4 justify-center">
-            <!-- logo goes here -->
-            <div>
-              <a href="index.html" class="flex items-center py-5 px-2">
-                <svg
-                  height="800px"
-                  width="800px"
-                  version="1.1"
-                  id="Capa_1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                  viewBox="0 0 48.839 48.839"
-                  xml:space="preserve"
-                  class="h-6 w-6 mr-1"
+        <div
+          class="max-w-[1200px] bg-alabaster-100 mx-auto h-28 flex justify-center px-6"
+        >
+          <div class="flex justify-between items-center w-full">
+            <div class="flex space-x-4 justify-center">
+              <!-- logo goes here -->
+              <div>
+                <a href="index.html" class="flex items-center py-5 px-2">
+                  <svg
+                    height="800px"
+                    width="800px"
+                    version="1.1"
+                    id="Capa_1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 0 48.839 48.839"
+                    xml:space="preserve"
+                    class="h-6 w-6 mr-1"
+                  >
+                    <g>
+                      <path
+                        style="fill: #a73edc"
+                        d="M39.041,36.843c2.054,3.234,3.022,4.951,3.022,6.742c0,3.537-2.627,5.252-6.166,5.252
+                c-1.56,0-2.567-0.002-5.112-1.326c0,0-1.649-1.509-5.508-1.354c-3.895-0.154-5.545,1.373-5.545,1.373
+                c-2.545,1.323-3.516,1.309-5.074,1.309c-3.539,0-6.168-1.713-6.168-5.252c0-1.791,0.971-3.506,3.024-6.742
+                c0,0,3.881-6.445,7.244-9.477c2.43-2.188,5.973-2.18,5.973-2.18h1.093v-0.001c0,0,3.698-0.009,5.976,2.181
+                C35.059,30.51,39.041,36.844,39.041,36.843z M16.631,20.878c3.7,0,6.699-4.674,6.699-10.439S20.331,0,16.631,0
+                S9.932,4.674,9.932,10.439S12.931,20.878,16.631,20.878z M10.211,30.988c2.727-1.259,3.349-5.723,1.388-9.971
+                s-5.761-6.672-8.488-5.414s-3.348,5.723-1.388,9.971C3.684,29.822,7.484,32.245,10.211,30.988z M32.206,20.878
+                c3.7,0,6.7-4.674,6.7-10.439S35.906,0,32.206,0s-6.699,4.674-6.699,10.439C25.507,16.204,28.506,20.878,32.206,20.878z
+                M45.727,15.602c-2.728-1.259-6.527,1.165-8.488,5.414s-1.339,8.713,1.389,9.972c2.728,1.258,6.527-1.166,8.488-5.414
+                S48.455,16.861,45.727,15.602z"
+                      />
+                    </g>
+                  </svg>
+                  <span class="font-bold text-black-900">Pet&Paws</span>
+                </a>
+              </div>
+              <!-- primary nav -->
+              <div class="hidden tablet:flex items-center space-x-1">
+                <a
+                  href=""
+                  class="py-5 px-3 text-gray-700 hover:bg-alabaster-200"
+                  >Shop</a
                 >
-                  <g>
+                <a
+                  href=""
+                  class="py-5 px-3 text-gray-700 hover:bg-alabaster-200"
+                  >Contact</a
+                >
+              </div>
+            </div>
+
+            <!-- seconday nav -->
+            <div class="hidden tablet:flex text-center space-x-1">
+              <div
+                class="message hidden font-normal h-5 absolute right-10 top-[60%]"
+              >
+                <span class="block font-light text-sm text-gray-600 relative"
+                  >Product added to Basket!</span
+                >
+              </div>
+              <a href="cart.html" class="py-5 px-0" id="">
+                <span class="tooltip relative inline-block">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    class="w-6 h-6 text-gray-700"
+                  >
                     <path
-                      style="fill: #a73edc"
-                      d="M39.041,36.843c2.054,3.234,3.022,4.951,3.022,6.742c0,3.537-2.627,5.252-6.166,5.252
-		c-1.56,0-2.567-0.002-5.112-1.326c0,0-1.649-1.509-5.508-1.354c-3.895-0.154-5.545,1.373-5.545,1.373
-		c-2.545,1.323-3.516,1.309-5.074,1.309c-3.539,0-6.168-1.713-6.168-5.252c0-1.791,0.971-3.506,3.024-6.742
-		c0,0,3.881-6.445,7.244-9.477c2.43-2.188,5.973-2.18,5.973-2.18h1.093v-0.001c0,0,3.698-0.009,5.976,2.181
-		C35.059,30.51,39.041,36.844,39.041,36.843z M16.631,20.878c3.7,0,6.699-4.674,6.699-10.439S20.331,0,16.631,0
-		S9.932,4.674,9.932,10.439S12.931,20.878,16.631,20.878z M10.211,30.988c2.727-1.259,3.349-5.723,1.388-9.971
-		s-5.761-6.672-8.488-5.414s-3.348,5.723-1.388,9.971C3.684,29.822,7.484,32.245,10.211,30.988z M32.206,20.878
-		c3.7,0,6.7-4.674,6.7-10.439S35.906,0,32.206,0s-6.699,4.674-6.699,10.439C25.507,16.204,28.506,20.878,32.206,20.878z
-		 M45.727,15.602c-2.728-1.259-6.527,1.165-8.488,5.414s-1.339,8.713,1.389,9.972c2.728,1.258,6.527-1.166,8.488-5.414
-		S48.455,16.861,45.727,15.602z"
+                      fill-rule="evenodd"
+                      d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 0 0 4.25 22.5h15.5a1.875 1.875 0 0 0 1.865-2.071l-1.263-12a1.875 1.875 0 0 0-1.865-1.679H16.5V6a4.5 4.5 0 1 0-9 0ZM12 3a3 3 0 0 0-3 3v.75h6V6a3 3 0 0 0-3-3Zm-3 8.25a3 3 0 1 0 6 0v-.75a.75.75 0 0 1 1.5 0v.75a4.5 4.5 0 1 1-9 0v-.75a.75.75 0 0 1 1.5 0v.75Z"
+                      clip-rule="evenodd"
                     />
-                  </g>
-                </svg>
-                <span class="font-bold text-black-900">Pet&Paws</span>
+                  </svg>
+                  <span
+                    class="tooltiptext bg-[#ffff] text-gray-600 text-sm font-normal py-1.5 mt-0.5"
+                    >Basket</span
+                  >
+                  <span
+                    class="py-0.5 px-1 badge bg-red-400 text-sm text-white font-bold border-0"
+                    id="items-count"
+                    >0</span
+                  >
+                </span>
               </a>
             </div>
-            <!-- primary nav -->
-            <div class="hidden tablet:flex items-center space-x-1">
-              <a href="" class="py-5 px-3 text-gray-700 hover:bg-alabaster-200"
-                >Shop</a
-              >
-              <a href="" class="py-5 px-3 text-gray-700 hover:bg-alabaster-200"
-                >Contact</a
-              >
-            </div>
-          </div>
-
-          <!-- seconday nav -->
-          <div class="hidden tablet:flex text-center space-x-1">
-            <div
-              class="message hidden font-normal h-5 absolute right-10 top-[60%]"
-            >
-              <span class="block font-light text-sm text-gray-600 relative"
-                >Product added to Basket!</span
-              >
-            </div>
-            <a href="cart.html" class="py-5 px-0" id="">
-              <span class="tooltip relative inline-block">
+            <div class="tablet:hidden flex items-center">
+              <button class="mobile-menu-button">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
+                  viewBox="0 0 20 20"
                   fill="currentColor"
-                  class="w-6 h-6 text-gray-700"
+                  class="w-5 h-5"
                 >
                   <path
                     fill-rule="evenodd"
-                    d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 0 0 4.25 22.5h15.5a1.875 1.875 0 0 0 1.865-2.071l-1.263-12a1.875 1.875 0 0 0-1.865-1.679H16.5V6a4.5 4.5 0 1 0-9 0ZM12 3a3 3 0 0 0-3 3v.75h6V6a3 3 0 0 0-3-3Zm-3 8.25a3 3 0 1 0 6 0v-.75a.75.75 0 0 1 1.5 0v.75a4.5 4.5 0 1 1-9 0v-.75a.75.75 0 0 1 1.5 0v.75Z"
+                    d="M2 4.75A.75.75 0 0 1 2.75 4h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 4.75ZM2 10a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 10Zm0 5.25a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z"
                     clip-rule="evenodd"
                   />
                 </svg>
-                <span
-                  class="tooltiptext bg-[#ffff] text-gray-600 text-sm font-normal py-1.5 mt-0.5"
-                  >Basket</span
-                >
-                <span
-                  class="py-0.5 px-1 badge bg-red-400 text-sm text-white font-bold border-0"
-                  id="items-count"
-                  >0</span
-                >
-              </span>
-            </a>
-          </div>
-          <div class="tablet:hidden flex items-center">
-            <button class="mobile-menu-button">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                class="w-5 h-5"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M2 4.75A.75.75 0 0 1 2.75 4h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 4.75ZM2 10a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 10Zm0 5.25a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </button>
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-      <!-- mobile menu -->
-      <div class="mobile-menu hidden tablet:hidden h-screen">
-        <a href="#shop" class="block px-2 py-4 text-sm hover:text-gray-200"
-          >Shop</a
-        >
-        <a href="#contact" class="block px-2 py-4 text-sm hover:text-gray-200"
-          >Contact</a
-        >
-      </div>
-    </nav>
-    <!-- shopping cart -->
-    <div class="">
-      <div
-        class="max-w-2xl m-auto font-bold text-2xl text-amethyst-600 mt-3 text-start"
-      >
-        <h4>Your Basket</h4>
-      </div>
-      <table
-        class="border-2 border-alabaster-300 w-full max-w-2xl m-auto mt-1 border-collapse rounded-md"
-      >
-        <thead>
-          <tr
-            class="text-left border border-b-2 border-alabaster-300 *:py-1 *:px-3 text-base font-normal"
+        <!-- mobile menu -->
+        <div class="mobile-menu hidden tablet:hidden h-screen">
+          <a href="#shop" class="block px-2 py-4 text-sm hover:text-gray-200"
+            >Shop</a
           >
-            <th colspan="2">Items</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Total</th>
-            <th class="delete-item">Remove</th>
-          </tr>
-        </thead>
-        <tbody class="item-list"></tbody>
-      </table>
+          <a href="#contact" class="block px-2 py-4 text-sm hover:text-gray-200"
+            >Contact</a
+          >
+        </div>
+      </nav>
+      <!-- shopping cart -->
+      <div class="">
+        <div
+          class="max-w-2xl m-auto font-bold text-2xl text-amethyst-600 mt-3 text-start"
+        >
+          <h4>Your Basket</h4>
+        </div>
+        <table
+          class="border-2 border-alabaster-300 w-full max-w-2xl m-auto mt-1 border-collapse rounded-md"
+        >
+          <thead>
+            <tr
+              class="text-left border border-b-2 border-alabaster-300 *:py-1 *:px-3 text-base font-normal"
+            >
+              <th colspan="2">Items</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Total</th>
+              <th class="delete-item">Remove</th>
+            </tr>
+          </thead>
+          <tbody class="item-list"></tbody>
+        </table>
 
+        <div
+          class="total-container mt-2 border border-1 border-alabaster-300 max-w-2xl m-auto"
+        ></div>
+      </div>
+      <!-- promo code pop up -->
       <div
-        class="total-container mt-2 border border-1 border-alabaster-300 max-w-2xl m-auto"
-      ></div>
-    </div>
+        class="overlay hidden justify-center items-center bg-[#000000b3] absolute inset-0 z-10"
+      >
+        <div
+          class="modal flex flex-col w-[400px] relative left-[5%] top-[20%] bg-waikawa-gray-50 rounded border"
+        >
+          <div class="">
+            <h1>Enter a promo code</h1>
+            <button>X</button>
+          </div>
+          <div class="">
+            <label for="">Promo Code</label>
+            <input type="" value="" />
+            <button>Apply</button>
+          </div>
+          <p>N</p>
+        </div>
+      </div>
+    </main>
   </body>
 </html>

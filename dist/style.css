@@ -546,6 +546,34 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.container{
+  width: 100%;
+}
+
+@media (min-width: 320px){
+  .container{
+    max-width: 320px;
+  }
+}
+
+@media (min-width: 640px){
+  .container{
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 1024px){
+  .container{
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px){
+  .container{
+    max-width: 1280px;
+  }
+}
+
 .absolute{
   position: absolute;
 }
@@ -556,6 +584,10 @@ video {
 
 .sticky{
   position: sticky;
+}
+
+.inset-0{
+  inset: 0px;
 }
 
 .right-10{
@@ -570,8 +602,44 @@ video {
   top: 60%;
 }
 
+.left-\[\]{
+  left: ;
+}
+
+.left-\[5\]{
+  left: 5;
+}
+
+.left-\[55\]{
+  left: 55;
+}
+
+.left-\[5\%\]{
+  left: 5%;
+}
+
+.top-\[3\]{
+  top: 3;
+}
+
+.top-\[2\]{
+  top: 2;
+}
+
+.top-\[20\]{
+  top: 20;
+}
+
+.top-\[20\%\]{
+  top: 20%;
+}
+
 .z-10{
   z-index: 10;
+}
+
+.z-50{
+  z-index: 50;
 }
 
 .m-10{
@@ -582,6 +650,11 @@ video {
   margin: auto;
 }
 
+.mx-1{
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
+
 .mx-3{
   margin-left: 0.75rem;
   margin-right: 0.75rem;
@@ -590,11 +663,6 @@ video {
 .mx-auto{
   margin-left: auto;
   margin-right: auto;
-}
-
-.mx-1{
-  margin-left: 0.25rem;
-  margin-right: 0.25rem;
 }
 
 .mb-1{
@@ -681,6 +749,18 @@ video {
   height: 100vh;
 }
 
+.h-full{
+  height: 100%;
+}
+
+.h-\[100\]{
+  height: 100;
+}
+
+.h-\[100vh\]{
+  height: 100vh;
+}
+
 .w-1\/2{
   width: 50%;
 }
@@ -705,6 +785,34 @@ video {
   width: 100%;
 }
 
+.w-\[300px\]{
+  width: 300px;
+}
+
+.w-\[1\]{
+  width: 1;
+}
+
+.w-\[100\]{
+  width: 100;
+}
+
+.w-\[100v\]{
+  width: 100v;
+}
+
+.w-\[100vw\]{
+  width: 100vw;
+}
+
+.w-\[400px\]{
+  width: 400px;
+}
+
+.w-screen{
+  width: 100vw;
+}
+
 .max-w-2xl{
   max-width: 42rem;
 }
@@ -719,6 +827,10 @@ video {
 
 .border-collapse{
   border-collapse: collapse;
+}
+
+.cursor-pointer{
+  cursor: pointer;
 }
 
 .grid-cols-1{
@@ -777,6 +889,10 @@ video {
   border-radius: 0.75rem;
 }
 
+.rounded{
+  border-radius: 0.25rem;
+}
+
 .border{
   border-width: 1px;
 }
@@ -801,13 +917,14 @@ video {
   border-style: double;
 }
 
-.border-none{
-  border-style: none;
-}
-
 .border-alabaster-300{
   --tw-border-opacity: 1;
   border-color: rgb(212 212 213 / var(--tw-border-opacity));
+}
+
+.border-amethyst-600{
+  --tw-border-opacity: 1;
+  border-color: rgb(151 53 196 / var(--tw-border-opacity));
 }
 
 .border-red-800{
@@ -815,19 +932,9 @@ video {
   border-color: rgb(177 3 3 / var(--tw-border-opacity));
 }
 
-.border-gray-500{
+.border-red-200{
   --tw-border-opacity: 1;
-  border-color: rgb(109 109 109 / var(--tw-border-opacity));
-}
-
-.border-amethyst-500{
-  --tw-border-opacity: 1;
-  border-color: rgb(167 62 220 / var(--tw-border-opacity));
-}
-
-.border-amethyst-600{
-  --tw-border-opacity: 1;
-  border-color: rgb(151 53 196 / var(--tw-border-opacity));
+  border-color: rgb(255 192 192 / var(--tw-border-opacity));
 }
 
 .bg-\[\#ffff\]{
@@ -852,6 +959,19 @@ video {
 .bg-red-400{
   --tw-bg-opacity: 1;
   background-color: rgb(255 87 87 / var(--tw-bg-opacity));
+}
+
+.bg-waikawa-gray-50{
+  --tw-bg-opacity: 1;
+  background-color: rgb(242 247 251 / var(--tw-bg-opacity));
+}
+
+.bg-\[\]{
+  background-color: ;
+}
+
+.bg-\[\#000000b3\]{
+  background-color: #000000b3;
 }
 
 .object-cover{
@@ -973,11 +1093,6 @@ video {
   line-height: 1.25rem;
 }
 
-.text-xl{
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
 .text-xs{
   font-size: 0.75rem;
   line-height: 1rem;
@@ -1033,6 +1148,10 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.underline{
+  text-decoration-line: underline;
+}
+
 .shadow-md{
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
@@ -1081,11 +1200,6 @@ video {
   border-radius: 50%;
 }
 
-.\*\:mx-1 > *{
-  margin-left: 0.25rem;
-  margin-right: 0.25rem;
-}
-
 .\*\:mx-2 > *{
   margin-left: 0.5rem;
   margin-right: 0.5rem;
@@ -1111,20 +1225,6 @@ video {
 .\*\:py-1 > *{
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
-}
-
-.\*\:py-4 > *{
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
-.\*\:py-2 > *{
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-
-.\*\:pt-2 > *{
-  padding-top: 0.5rem;
 }
 
 .\*\:pt-1 > *{

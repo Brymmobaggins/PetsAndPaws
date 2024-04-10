@@ -8,15 +8,6 @@ btn.addEventListener('click', () => {
   menu.classList.toggle('hidden');
 });
 
-// fetch("products.json")
-//   .then((response) => response.json())
-//   .then((products) => {
-//     // Process the product inventory data
-//     console.log(products);
-//     // Loop through the add to cart buttons
-
-//   });
-
 for (let i = 0; i < addtoCartBtn.length; i++) {
   addtoCartBtn[i].addEventListener('click', () => {
     cartNumber(products[i])
@@ -146,13 +137,35 @@ function setItems(product) {
 // On load, update cart numbers
 function onloadsCartNumbers() {
   let productNumbers = localStorage.getItem('cartNumbers');
+  let cartItems = localStorage.getItem('productInCart');
   if (productNumbers) {
     document.getElementById("items-count").textContent = productNumbers;
+  }
+  if (!cartItems) {
+    localStorage.setItem('cartNumbers', 0)
+    document.getElementById("items-count").textContent = 0
   }
 }
 onloadsCartNumbers()
 // call display cart
 displayCart()
+
+
+// function increaseCartItemQuantity(tag) {
+//   let cartItems = JSON.parse(localStorage.getItem('productInCart'));
+  
+//   if (cartItems && cartItems[tag]) {
+//     cartItems[tag].inCart++; // Increase quantity of the product
+//   }
+// }
+
+
+
+
+// document.querySelector(".delete").addEventListener("click", function () {
+//   console.log(deleteProduct())
+// })
+
 
 
 function totalCost(product) {
@@ -165,6 +178,9 @@ function totalCost(product) {
     localStorage.setItem("totalCost", product.price);
   }
 }
+
+
+
 
 function withFlatRate() {
   let rate = 3000
@@ -198,12 +214,12 @@ function displayCart() {
             <td height=50 width=100><img src="/images/${item.img}" alt="${item.name}"></td>
             <td><span>&#x20A6;</span>${item.price}</td>
              <td class="text-center">
-              <span id="decrease"> - </span>
-              <span class="font-bold text-base pq">${item.inCart}</span>
-              <span id="increase"> + </span>
+              <span id="decrease"> - </sp>
+              <input class="border border-red-200 qantity" value="${item.inCart}">
+              <span id="increase" onclick="increaseCartItemQuantity(this)"> + </span>
              </td>
            <td class=""><span>&#x20A6;</span>${item.inCart * item.price}</td>
-           <td class="text-center">
+           <td class="text-center delete">
 
               <svg xmlns="http://www.w3.org/2000/svg" fill="#ff9494" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-6 text-red-400 hover:text-red-400 hover:cursor-pointer">
                <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
@@ -234,6 +250,7 @@ function displayCart() {
             <h4>Total</h4>
             <h4><span>&#x20A6;</span>${costWithFlatRate}</h4>
           </div><hr/>
+          <a class="text-sm text-amethyst-600 underline cursor-pointer">Enter discount or voucher code</a>
         </div>
         </div>
         <div class="flex text-center mt-1 p-2 *:w-1/2 ">
