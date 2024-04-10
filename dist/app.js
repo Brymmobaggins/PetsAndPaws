@@ -3,6 +3,9 @@ const btn = document.querySelector('button.mobile-menu-button');
 const menu = document.querySelector('.mobile-menu');
 const addtoCartBtn = document.querySelectorAll("#add-to-cart");
 
+
+
+
 // Toggle the hidden class on click
 btn.addEventListener('click', () => {
   menu.classList.toggle('hidden');
@@ -150,10 +153,18 @@ onloadsCartNumbers()
 // call display cart
 displayCart()
 
+const closeButton = document.querySelector(".close");
+const modal = document.querySelector(".modal");
+const overlay = document.querySelector(".overlay");
 
+closeButton.addEventListener('click', () => {
+  overlay.style.display = "none";
+  modal.style.display = "none";
+
+});
 // function increaseCartItemQuantity(tag) {
 //   let cartItems = JSON.parse(localStorage.getItem('productInCart'));
-  
+
 //   if (cartItems && cartItems[tag]) {
 //     cartItems[tag].inCart++; // Increase quantity of the product
 //   }
@@ -250,7 +261,7 @@ function displayCart() {
             <h4>Total</h4>
             <h4><span>&#x20A6;</span>${costWithFlatRate}</h4>
           </div><hr/>
-          <a class="text-sm text-amethyst-600 underline cursor-pointer">Enter discount or voucher code</a>
+          <a class="text-sm text-amethyst-600 underline cursor-pointer promo">Enter discount or voucher code</a>
         </div>
         </div>
         <div class="flex text-center mt-1 p-2 *:w-1/2 ">
@@ -281,9 +292,9 @@ function displayCart() {
   console.log(cartItems)
 }
 
-document.querySelector("#remove-item").addEventListener("click", function () {
-  document.querySelector("tbody").remove()
-})
+// document.querySelector("#remove-item").addEventListener("click", function () {
+//   document.querySelector("tbody").remove()
+// })
 
 
 
@@ -301,18 +312,20 @@ function confirmationMessage() {
 
 
 
-// Product data
 
+const popButton = document.querySelector(".promo")
 
-
-
+popButton.addEventListener('click', () => {
+  // show modal
+  overlay.style.display = "block";
+  modal.style.display = "block";
+})
 
 
 
 
 // Image slider
-let slideIndex = 0;
-// showSlides();
+let slideIndex = 0g
 
 function showSlides() {
   let slides = document.getElementsByClassName("slide");

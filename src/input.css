@@ -5,9 +5,7 @@
 @tailwind utilities;
 
 @layer components {
-
 }
-
 
 .tooltip .tooltiptext {
   visibility: hidden;
@@ -30,5 +28,10 @@
   top: -17px;
   right: -5px;
   border-radius: 50%;
-
 }
+/* .mystyle{
+  display: none;
+} */
+/* .overlay{
+  display: none;
+} */

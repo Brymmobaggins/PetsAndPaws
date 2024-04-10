@@ -14,8 +14,8 @@
     />
     <script defer src="./app.js"></script>
   </head>
-  <body class="font-Tauri h-screen w-screen">
-    <main class="">
+  <body class="font-Tauri">
+    <main class="h-screen w-screen overflow-auto">
       <nav
         class="mobile:text-sm tablet:text-base laptop:text-lg sticky z-10 w-full top-0 bg-alabaster-100"
       >
@@ -126,7 +126,7 @@
           </div>
         </div>
         <!-- mobile menu -->
-        <div class="mobile-menu hidden tablet:hidden h-screen">
+        <div class="mobile-menu hidden tablet:hidden">
           <a href="#shop" class="block px-2 py-4 text-sm hover:text-gray-200"
             >Shop</a
           >
@@ -163,23 +163,40 @@
           class="total-container mt-2 border border-1 border-alabaster-300 max-w-2xl m-auto"
         ></div>
       </div>
-      <!-- promo code pop up -->
+      <!-- Parent for promo-->
       <div
-        class="overlay hidden justify-center items-center bg-[#000000b3] absolute inset-0 z-10"
+        class="flex overlay justify-center items-center bg-[#000000b3] absolute inset-0 z-10"
       >
+        <!-- modal promo  -->
         <div
-          class="modal flex flex-col w-[400px] relative left-[5%] top-[20%] bg-waikawa-gray-50 rounded border"
+          class="modal flex flex-col w-full h-[250px] max-w-[500px] relative -left-[2%] top-[5%] bg-waikawa-gray-50 rounded border-2 border-red-200 p-6"
         >
-          <div class="">
-            <h1>Enter a promo code</h1>
-            <button>X</button>
+          <div class="flex justify-between items-center">
+            <h4 class="text-2xl font-normal">Enter a promo code</h4>
+            <button class="rounded-full px-2 bg-alabaster-700 text-white close">X</button>
           </div>
-          <div class="">
-            <label for="">Promo Code</label>
-            <input type="" value="" />
-            <button>Apply</button>
-          </div>
-          <p>N</p>
+          <form>
+            <div class="mt-5">
+              <label
+                for="promo"
+                class="block text-sm font-medium leading-6 text-amethyst-600"
+                >Promo code</label
+              >
+              <div class="flex justify-between gap-5">
+                <input
+                  class="text-lg text-alabaster-700 inline-block text-center mobile:text-sm p-3 border rounded-md focus:border-red-700 focus:border-3 outline-none w-[60%]"
+                  type=""
+                  id="promo"
+                />
+                <button class="border p-3 w-[40%] rounded-full">
+                  Apply Code
+                </button>
+              </div>
+            </div>
+            <p class="text-sm text-amethyst-600 leading-6 mt-3">
+              Please note code are case sensitive.
+            </p>
+          </form>
         </div>
       </div>
     </main>
