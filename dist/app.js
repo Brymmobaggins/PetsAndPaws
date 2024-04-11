@@ -1,8 +1,21 @@
+// Image slider
+let slideIndex = 0
 
+function showSlides() {
+  let slides = document.getElementsByClassName("slide");
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {
+    slideIndex = 1;
+  }
+  slides[slideIndex - 1].style.display = "block";
+
+}
 const btn = document.querySelector('button.mobile-menu-button');
 const menu = document.querySelector('.mobile-menu');
 const addtoCartBtn = document.querySelectorAll("#add-to-cart");
-
 
 
 
@@ -15,7 +28,6 @@ for (let i = 0; i < addtoCartBtn.length; i++) {
   addtoCartBtn[i].addEventListener('click', () => {
     cartNumber(products[i])
     totalCost(products[i])
-    // totalWithFlatRate(products[i])
     withFlatRate()
     confirmationMessage()
   });
@@ -100,7 +112,17 @@ const products =
     img: "dalmatian-5.jpeg"
   }
   ]
+// show confrimation message when product is added
+function confirmationMessage() {
+  const confirmationMessage = document.querySelector(".message")
+  confirmationMessage.style.display = "block"
 
+  //  hide a message after a delay
+  setTimeout(() => {
+    confirmationMessage.style.display = "none"
+    // hides message after one second
+  }, 1000)
+}
 // Update cart number and items
 function cartNumber(product) {
   let productNumbers = localStorage.getItem('cartNumbers');
@@ -154,14 +176,6 @@ onloadsCartNumbers()
 // call display cart
 displayCart()
 
-const closeButton = document.querySelector(".close");
-const modal = document.querySelector(".modal");
-const overlay = document.querySelector(".overlay");
-
-closeButton.addEventListener('click', () => {
-  modal.style.display = "none";
-
-});
 
 
 
@@ -177,8 +191,6 @@ function totalCost(product) {
 }
 
 
-
-
 function withFlatRate() {
   let rate = 3000
 
@@ -189,7 +201,6 @@ function withFlatRate() {
 
   localStorage.setItem("costWithFlatRate", costWithFlatRate);
 }
-
 
 
 function displayCart() {
@@ -246,12 +257,12 @@ function displayCart() {
             <h4>Total</h4>
             <h4><span>&#x20A6;</span>${costWithFlatRate}</h4>
           </div><hr/>
-          <a class="text-xs font-light text-amethyst-600 underline cursor-pointer promo">Enter discount or voucher code</a>
+          <a class="text-xs font-light text-amethyst-600 underline cursor-pointer" id="open">Enter discount or voucher code</a>
         </div>
         </div>
         <div class="flex text-center mt-1 p-2 *:w-1/2 ">
-          <a href="index.html" class="border-4 border-double border-amethyst-600 rounded-full text-sm py-1 mx-1">Cotinue Shopping</a>
-          <a href="#" class="border-2 rounded-full bg-amethyst-600 hover:bg-amethyst-700 text-white text-sm py-1 mx-1">Checkout</a>
+          <a href="index.html" class="border-4 border-double border-amethyst-600 rounded-full text-sm py-1 mx-1">Continue Shopping</a>
+          <a  class="border-2 rounded-full bg-amethyst-600 hover:bg-amethyst-700 text-white text-sm py-1 mx-1" id="place-order">Place Order</a>
         </div>
      `
   } else {
@@ -276,32 +287,45 @@ function displayCart() {
 
   console.log(cartItems)
 }
+// function to control the modal
+function modalControl() {
+  const modal = document.querySelector("#modal");
+  const modalOpenButton = document.querySelector("#open");
+  const closeModalButton = document.querySelector("#close");
+  const orderButton = document.querySelector("#place-order");
 
-// show confrimation message
-function confirmationMessage() {
-  const confirmationMessage = document.querySelector(".message")
-  confirmationMessage.style.display = "block"
-
-  //  hide a message after a delay
-  setTimeout(() => {
-    confirmationMessage.style.display = "none"
-    // hides message after one second
-  }, 1000)
-}
-
-const openModalButton = document.querySelector(".promo")
-openModalButton.addEventListener('click', () => {
-  modal.style.display = "block";
-})
-// when the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-  if (event.target == modal) {
+  closeModalButton.addEventListener("click", () => {
     modal.style.display = "none";
+  });
+
+  modalOpenButton.addEventListener("click", () => {
+    modal.style.display = "block";
+  });
+
+  orderButton.addEventListener("click", () => {
+    modal.style.display = "block";
+
+    let confirmationNu
+    document.querySelector("#modal-content").textContent = ""
+    document.querySelector("#number").textContent = confirmationNumber()
+
+  })
+
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
   }
+
 }
+// call modal
+modalControl()
+
+
+
 const inputEl = document.querySelector("#my-input")
 const codeButton = document.querySelector(".promo-button")
-console.log(codeButton)
+
 inputEl.addEventListener('input', () => {
   if (inputEl.value.length > 0) {
     codeButton.classList.remove("opacity-25")
@@ -311,22 +335,65 @@ inputEl.addEventListener('input', () => {
     codeButton.classList.remove("opacity-100")
     codeButton.classList.add("opacity-25")
   }
-
 })
 
+// function to generate random confirmation number
 
-// Image slider
-let slideIndex = 0
-
-function showSlides() {
-  let slides = document.getElementsByClassName("slide");
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  slideIndex++;
-  if (slideIndex > slides.length) {
-    slideIndex = 1;
-  }
-  slides[slideIndex - 1].style.display = "block";
-
+function generateConfirmationNumber() {
+  const randomNumber = Math.floor(Math.random() * 1000000000)
+  return randomNumber
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// handle submit of promo code
+// const promoForm = document.querySelector("form")
+// promoForm.addEventListener("submit", (e) => {
+
+//   e.preventDefault()
+
+//   const code = inputEl.value
+//   if (code === "SUMMER50") {
+//     const costWithFlatRate = localStorage.getItem("costWithFlatRate")
+//     const totalCost = parseFloat(costWithFlatRate)
+//     let discountAmount = totalCost * 0.5
+
+//     FlatRate = costWithFlatRate - discountAmount
+//     totalContainer.innerHTML = ""
+//     totalContainer.innerHTML += `
+//     <div>
+//     <p>Discount applied! Your new total is <span >&#x20A6;</span>${costWithFlatRate}
+//     </p>
+//     </div>
+// `
+//     // const confirmationNumber = generateRandomConfirmationNumber()
+
+//     totalContainer.innerHTML += `
+//       <div>
+//       <p>Discount applied! Your new total is <span>
+//         &#x20A6;</span>${costWithFlatRate}</p>
+//     </div>
+//       `
+//   }
+// })
