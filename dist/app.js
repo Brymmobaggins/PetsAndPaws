@@ -150,6 +150,7 @@ function onloadsCartNumbers() {
   }
 }
 onloadsCartNumbers()
+
 // call display cart
 displayCart()
 
@@ -158,24 +159,9 @@ const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 
 closeButton.addEventListener('click', () => {
-  overlay.style.display = "none";
   modal.style.display = "none";
 
 });
-// function increaseCartItemQuantity(tag) {
-//   let cartItems = JSON.parse(localStorage.getItem('productInCart'));
-
-//   if (cartItems && cartItems[tag]) {
-//     cartItems[tag].inCart++; // Increase quantity of the product
-//   }
-// }
-
-
-
-
-// document.querySelector(".delete").addEventListener("click", function () {
-//   console.log(deleteProduct())
-// })
 
 
 
@@ -201,7 +187,6 @@ function withFlatRate() {
 
   let costWithFlatRate = totalCost + rate;
 
-  console.log("my totals cost is", costWithFlatRate)
   localStorage.setItem("costWithFlatRate", costWithFlatRate);
 }
 
@@ -243,7 +228,7 @@ function displayCart() {
 
     totalContainer.innerHTML += `
     <div class="flex justify-end border-1">
-      <div class="w-1/2 py-2 *:mx-2 *:pt-1">
+      <div class="w-1/2 py-2 *:mx-2 *:pt-1 *:text-sm font-bold">
           <div class="flex justify-between">
             <h4 class="basket-total bg-alasbaster-700">
               Subtotal
@@ -261,7 +246,7 @@ function displayCart() {
             <h4>Total</h4>
             <h4><span>&#x20A6;</span>${costWithFlatRate}</h4>
           </div><hr/>
-          <a class="text-sm text-amethyst-600 underline cursor-pointer promo">Enter discount or voucher code</a>
+          <a class="text-xs font-light text-amethyst-600 underline cursor-pointer promo">Enter discount or voucher code</a>
         </div>
         </div>
         <div class="flex text-center mt-1 p-2 *:w-1/2 ">
@@ -292,12 +277,6 @@ function displayCart() {
   console.log(cartItems)
 }
 
-// document.querySelector("#remove-item").addEventListener("click", function () {
-//   document.querySelector("tbody").remove()
-// })
-
-
-
 // show confrimation message
 function confirmationMessage() {
   const confirmationMessage = document.querySelector(".message")
@@ -310,22 +289,34 @@ function confirmationMessage() {
   }, 1000)
 }
 
-
-
-
-const popButton = document.querySelector(".promo")
-
-popButton.addEventListener('click', () => {
-  // show modal
-  overlay.style.display = "block";
+const openModalButton = document.querySelector(".promo")
+openModalButton.addEventListener('click', () => {
   modal.style.display = "block";
+})
+// when the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+const inputEl = document.querySelector("#my-input")
+const codeButton = document.querySelector(".promo-button")
+console.log(codeButton)
+inputEl.addEventListener('input', () => {
+  if (inputEl.value.length > 0) {
+    codeButton.classList.remove("opacity-25")
+    codeButton.classList.add("opacity-100")
+
+  } else {
+    codeButton.classList.remove("opacity-100")
+    codeButton.classList.add("opacity-25")
+  }
+
 })
 
 
-
-
 // Image slider
-let slideIndex = 0g
+let slideIndex = 0
 
 function showSlides() {
   let slides = document.getElementsByClassName("slide");

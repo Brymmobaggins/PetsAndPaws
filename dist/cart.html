@@ -15,7 +15,7 @@
     <script defer src="./app.js"></script>
   </head>
   <body class="font-Tauri">
-    <main class="h-screen w-screen overflow-auto">
+    <main>
       <nav
         class="mobile:text-sm tablet:text-base laptop:text-lg sticky z-10 w-full top-0 bg-alabaster-100"
       >
@@ -143,11 +143,11 @@
           <h4>Your Basket</h4>
         </div>
         <table
-          class="border-2 border-alabaster-300 w-full max-w-2xl m-auto mt-1 border-collapse rounded-md"
+          class="border border-alabaster-300 w-full max-w-2xl m-auto mt-1 border-collapse rounded-md"
         >
           <thead>
             <tr
-              class="text-left border border-b-2 border-alabaster-300 *:py-1 *:px-3 text-base font-normal"
+              class="text-left border border-b-2 border-alabaster-300 *:py-1 *:px-3 text-sm font-bold"
             >
               <th colspan="2">Items</th>
               <th>Price</th>
@@ -163,40 +163,45 @@
           class="total-container mt-2 border border-1 border-alabaster-300 max-w-2xl m-auto"
         ></div>
       </div>
-      <!-- Parent for promo-->
+
+      <!-- Modal -->
       <div
-        class="flex overlay justify-center items-center bg-[#000000b3] absolute inset-0 z-10"
+        class="modal fixed w-full h-full overflow-auto left-0 top-0 z-10 bg-[#000000b3] pt-[100px] transition duration-700 ease-in-out "
       >
-        <!-- modal promo  -->
+        <!-- modal content -->
         <div
-          class="modal flex flex-col w-full h-[250px] max-w-[500px] relative -left-[2%] top-[5%] bg-waikawa-gray-50 rounded border-2 border-red-200 p-6"
+          class="w-full max-w-[450px] m-auto bg-waikawa-gray-50 rounded border-2 border-red-200 p-6"
         >
           <div class="flex justify-between items-center">
             <h4 class="text-2xl font-normal">Enter a promo code</h4>
-            <button class="rounded-full px-2 bg-alabaster-700 text-white close">X</button>
+            <span
+              class="close font-bold text-3xl text-alabaster-700 hover:cursor-pointer focus:text-black-800 hover:text-black-800 hover:no-underline rounded-full"
+            >
+              &times;
+            </span>
           </div>
-          <form>
-            <div class="mt-5">
-              <label
-                for="promo"
-                class="block text-sm font-medium leading-6 text-amethyst-600"
-                >Promo code</label
-              >
-              <div class="flex justify-between gap-5">
-                <input
-                  class="text-lg text-alabaster-700 inline-block text-center mobile:text-sm p-3 border rounded-md focus:border-red-700 focus:border-3 outline-none w-[60%]"
-                  type=""
-                  id="promo"
-                />
-                <button class="border p-3 w-[40%] rounded-full">
-                  Apply Code
-                </button>
-              </div>
+          <!-- <form> -->
+          <div class="mt-5">
+            <label
+              for="promo"
+              class="block text-sm font-medium leading-6 text-amethyst-600"
+              >Promo code</label
+            >
+            <div class="flex justify-between gap-5">
+              <input
+                class="text-2xl text-black-800 font-Tauri font-bold inline-block text-center mobile:text-sm p-3 border rounded-md focus:border-red-700 focus:border-3 outline-none w-[60%]"
+                type=""
+                id="my-input"
+              />
+              <button class="promo-button border p-3 w-[40%] rounded-full opacity-25 bg-amethyst-400 text-white">
+                Apply Code
+              </button>
             </div>
-            <p class="text-sm text-amethyst-600 leading-6 mt-3">
-              Please note code are case sensitive.
-            </p>
-          </form>
+          </div>
+          <p class="text-sm text-amethyst-600 leading-6 mt-3">
+            Please note code are case sensitive.
+          </p>
+          <!-- </form> -->
         </div>
       </div>
     </main>
