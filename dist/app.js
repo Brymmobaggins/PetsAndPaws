@@ -257,12 +257,12 @@ function displayCart() {
             <h4>Total</h4>
             <h4><span>&#x20A6;</span>${costWithFlatRate}</h4>
           </div><hr/>
-          <a class="text-xs font-light text-amethyst-600 underline cursor-pointer" id="open">Enter discount or voucher code</a>
+          <a class="text-xs font-light text-amethyst-600 underline cursor-pointer" id="open-promo-box">Enter discount or voucher code</a>
         </div>
         </div>
         <div class="flex text-center mt-1 p-2 *:w-1/2 ">
           <a href="index.html" class="border-4 border-double border-amethyst-600 rounded-full text-sm py-1 mx-1">Continue Shopping</a>
-          <a  class="border-2 rounded-full bg-amethyst-600 hover:bg-amethyst-700 text-white text-sm py-1 mx-1" id="place-order">Place Order</a>
+          <a  class="border-2 rounded-full bg-amethyst-600 hover:bg-amethyst-700 text-white text-sm py-1 mx-1" id="open-order-box">Place Order</a>
         </div>
      `
   } else {
@@ -280,46 +280,100 @@ function displayCart() {
           <span>You may check out some available product and buy in the shop</span>
        </div>
       <a href="index.html" class="border-2 rounded-full bg-amethyst-600 hover:bg-alabaster-300 text-center text-white text-sm block w-1/4 mb-2 m-auto py-1">Return to shop</a>
-
     </div>
     `
   }
-
   console.log(cartItems)
 }
+
 // function to control the modal
-function modalControl() {
-  const modal = document.querySelector("#modal");
-  const modalOpenButton = document.querySelector("#open");
-  const closeModalButton = document.querySelector("#close");
-  const orderButton = document.querySelector("#place-order");
+const modal = document.querySelector("#modal");
+const closeModalButton = document.querySelector("#open-order-box");
+const openPromoBoxButton = document.querySelector("#open-promo-box");
+const openOrderBoxButton = document.querySelector("#open-order-box");
+const promoBox = document.querySelector("#promo-box");
+const orderBox = document.querySelector("#order-box");
 
-  closeModalButton.addEventListener("click", () => {
-    modal.style.display = "none";
+closeModalButton.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+openOrderBoxButton.addEventListener("click", () => {
+  modal.style.display = "block";
+  // Save promo box open state to localStorage on toggle
+  const promoBoxOpenKey = "promoBoxOpen";
+
+  promoBox.addEventListener("toggle", () => {
+    localStorage.setItem(
+      promoBoxOpenKey,
+      !promoBox.classList.contains("hidden")
+    );
   });
 
-  modalOpenButton.addEventListener("click", () => {
-    modal.style.display = "block";
-  });
-
-  orderButton.addEventListener("click", () => {
-    modal.style.display = "block";
-
-    let confirmationNu
-    document.querySelector("#modal-content").textContent = ""
-    document.querySelector("#number").textContent = confirmationNumber()
-
-  })
-
-  window.onclick = function (event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
+  // Get promo box open state from localStorage on page load
+  const isPromoBoxOpen = localStorage.getItem(promoBoxOpenKey);
+  if (isPromoBoxOpen) {
+    promoBox.classList.remove("hidden");
+  } else {
+    promoBox.classList.add("hidden");
   }
+});
 
+
+
+
+
+
+
+// openOrderBoxButton.addEventListener("click", () => {
+//   modal.querySelector("#modal-content").style.display = "none"
+//   // orderSuccess()
+
+// })
+// // function to generate random confirmation number
+// function generateConfirmationNumber() {
+//   const randomNumber = Math.floor(Math.random() * 10000)
+//   return randomNumber
+// }
+
+// function orderSuccess() {
+//   let confirmationNumber = generateConfirmationNumber()
+//   document.querySelector("#confirm-order").innerHTML = `Confirmation number:  <span class="text-2xl text-gray-700 font-bold">${confirmationNumber}</span>`
+// }
+
+
+// if (!localStorage.getItem("display")) {
+//   populateStorage()
+// } else {
+//   setStyle()
+// }
+// function populateStorage() {
+//   localStorage.setItem("display", document.getElementById("display").value)
+
+
+// }
+// function setStyle() {
+
+//   const currentDisplay = localStorage.getItem("display")
+
+
+//   document.getElementById("display").value = currentDisplay
+
+//   htmlEL.style.display = currentDisplay
+// }
+
+
+
+
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
 }
+
+
 // call modal
-modalControl()
+// modalControl()
 
 
 
@@ -337,12 +391,6 @@ inputEl.addEventListener('input', () => {
   }
 })
 
-// function to generate random confirmation number
-
-function generateConfirmationNumber() {
-  const randomNumber = Math.floor(Math.random() * 1000000000)
-  return randomNumber
-}
 
 
 

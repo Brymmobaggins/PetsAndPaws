@@ -169,10 +169,10 @@
         class="fixed w-full h-full overflow-auto left-0 top-0 z-10 bg-[#000000b3] pt-[100px]"
         id="modal"
       >
-        <!-- modal content -->
+        <!-- promo box content -->
         <div
           class="w-full max-w-[450px] m-auto bg-waikawa-gray-50 rounded border-2 border-red-200 p-6"
-          id="modal-content"
+          id="promo-box"
         >
           <div class="flex justify-between items-center">
             <h4 class="text-2xl font-normal">Enter a promo code</h4>
@@ -213,15 +213,15 @@
         </div>
         <!-- Order Modal Content -->
         <div
-          class="border bg-alabaster-50 m-auto max-w-[450px] h-full max-h-[200px]"
-          id="confirmation-number"
+          class="border bg-alabaster-50 m-auto max-w-[450px] *:mt-5 rounded-md"
+          id="order-box"
         >
           <span class="flex justify-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="green"
-              class="w-6 h-6 text-3xl"
+              class="w-6 h-6 text"
             >
               <path
                 fill-rule="evenodd"
@@ -230,12 +230,15 @@
               />
             </svg>
           </span>
-          <div class="text-center text-2xl">Order Confirmed</div>
-          <div>
-            Your confirmation Number is
-            <p id="number"></p>
+          <div class="text-center text-lg text-gray-400 font-thin">
+            Order Confirmed
           </div>
-          <button class="border px-3 block m-auto">Cancel Order</button>
+          <div class="text-center text-gray-400" id="confirm-order"></div>
+          <button
+            class="px-4 py-1 block m-auto mb-2 rounded-full bg-red-500 text-white text-xs"
+          >
+            Cancel Order
+          </button>
         </div>
       </div>
     </main>

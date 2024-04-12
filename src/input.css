@@ -29,8 +29,13 @@
   right: -5px;
   border-radius: 50%;
 }
-/* #modal{
+#modal {
   display: none;
-
+}
+/* #order-modal-content{
+  display: block;
 } */
-
+#promoBox.hidden,
+#orderBox.hidden {
+  display: none;
+}
