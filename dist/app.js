@@ -288,80 +288,47 @@ function displayCart() {
 
 // function to control the modal
 const modal = document.querySelector("#modal");
-const closeModalButton = document.querySelector("#open-order-box");
+const closeModalButton = document.querySelector("#close");
 const openPromoBoxButton = document.querySelector("#open-promo-box");
 const openOrderBoxButton = document.querySelector("#open-order-box");
+const CancelOrderButton = document.querySelector("#cancel")
 const promoBox = document.querySelector("#promo-box");
 const orderBox = document.querySelector("#order-box");
 
-closeModalButton.addEventListener("click", () => {
-  modal.style.display = "none";
-});
 
-openOrderBoxButton.addEventListener("click", () => {
-  modal.style.display = "block";
-  // Save promo box open state to localStorage on toggle
-  const promoBoxOpenKey = "promoBoxOpen";
+closeModalButton.addEventListener("click", closeModal)
+CancelOrderButton.addEventListener("click", cancelOrder)
 
-  promoBox.addEventListener("toggle", () => {
-    localStorage.setItem(
-      promoBoxOpenKey,
-      !promoBox.classList.contains("hidden")
-    );
-  });
+function cancelOrder(){
+  closeModal()
+  orderBox.style.display = "none"
+  promoBox.style.display = "none"
+  localStorage.clear()
+  displayCart()
+  window.location.href = "index.html"
+  
+}
+function closeModal() {
+  modal.style.display = "none"
+}
 
-  // Get promo box open state from localStorage on page load
-  const isPromoBoxOpen = localStorage.getItem(promoBoxOpenKey);
-  if (isPromoBoxOpen) {
-    promoBox.classList.remove("hidden");
-  } else {
-    promoBox.classList.add("hidden");
-  }
-});
+function openModal() {
+  modal.style.display = "block"
+}
+// // Add click handler to close modal if clicked outside
+// // function to open modal
+// // function to close modal
 
-
-
-
-
-
-
-// openOrderBoxButton.addEventListener("click", () => {
-//   modal.querySelector("#modal-content").style.display = "none"
-//   // orderSuccess()
-
+// // When order box button clicked, hide promo box and open modal
+// openOrderBoxButton.addEventListener("click", function () {
+//   promoBox.style.display = "none"
+//   openModal()
 // })
-// // function to generate random confirmation number
-// function generateConfirmationNumber() {
-//   const randomNumber = Math.floor(Math.random() * 10000)
-//   return randomNumber
-// }
-
-// function orderSuccess() {
-//   let confirmationNumber = generateConfirmationNumber()
-//   document.querySelector("#confirm-order").innerHTML = `Confirmation number:  <span class="text-2xl text-gray-700 font-bold">${confirmationNumber}</span>`
-// }
-
-
-// if (!localStorage.getItem("display")) {
-//   populateStorage()
-// } else {
-//   setStyle()
-// }
-// function populateStorage() {
-//   localStorage.setItem("display", document.getElementById("display").value)
-
-
-// }
-// function setStyle() {
-
-//   const currentDisplay = localStorage.getItem("display")
-
-
-//   document.getElementById("display").value = currentDisplay
-
-//   htmlEL.style.display = currentDisplay
-// }
-
+// // When promo box button clicked, open modal and hide order box
+// openPromoBoxButton.addEventListener("click", function () {
+//   openModal()
+//   orderBox.style.display = "none"
+// })
 
 
 
@@ -372,8 +339,66 @@ window.onclick = function (event) {
 }
 
 
-// call modal
-// modalControl()
+openPromoBoxButton.addEventListener("click", function () {
+  // open modal
+  openModal()
+
+  const orderBoxOpenkey = "isOrderBoxOpen"
+  orderBox.addEventListener("toggle", function () {
+    localStorage.setItem(orderBoxOpenkey, !orderBox.classList.contains("hidden"))
+  })
+  // when page loads
+  const isOrderBoxOpen = localStorage.getItem(orderBoxOpenkey)
+
+  if (isOrderBoxOpen) {
+    orderBox.classList.remove("hidden")
+  } else {
+    orderBox.classList.add("hidden")
+  }
+
+})
+// Show the modal when the Place Order button is clicked
+openOrderBoxButton.addEventListener("click", function () {
+  // Show the modal
+  openModal()
+
+  // Save whether the promo box is open in local storage
+  const promoBoxOpenKey = "isPromoBoxOpen";
+
+  // When the promo box is toggled open or closed
+  promoBox.addEventListener("toggle", function () {
+    // Save the open state to local storage
+    localStorage.setItem(
+      promoBoxOpenKey, !promoBox.classList.contains("hidden"))
+  });
+
+  // When the page loads
+  const isPromoBoxOpen = localStorage.getItem(promoBoxOpenKey);
+
+  // If promo box was open
+  if (isPromoBoxOpen) {
+    // Show the promo box
+    promoBox.classList.remove("hidden");
+
+    // Otherwise
+  } else {
+    // Hide the promo box
+    promoBox.classList.add("hidden");
+
+  }
+});
+
+
+function orderSuccess() {
+  // generate random number
+  let randomNumberCode = Math.floor(Math.random() * 10000)
+  let confirmationNumber = randomNumberCode
+  document.querySelector("#confirm-order").innerHTML = `Confirmation number:  <span class="text-2xl text-gray-700 font-bold">${confirmationNumber}</span>`
+}
+orderSuccess()
+
+
+
 
 
 
