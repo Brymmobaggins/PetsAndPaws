@@ -13,6 +13,7 @@
       href="/images/favicon-img.png"
     />
     <script defer src="./app.js"></script>
+    <!-- <script defer src="./order.js"></script> -->
   </head>
   <body class="font-Tauri">
     <main>
@@ -197,10 +198,11 @@
                 <input
                   class="text-2xl text-black-800 font-Tauri font-bold inline-block text-center mobile:text-sm p-3 border rounded-md focus:border-red-700 focus:border-3 outline-none w-[60%]"
                   type=""
-                  id="my-input"
+                  id="code-input"
                 />
                 <button
-                  class="promo-button border p-3 w-[40%] rounded-full opacity-25 bg-amethyst-400 text-white"
+                  class="border p-3 w-[40%] rounded-full opacity-25 bg-amethyst-400 text-white"
+                  id="promo-button"
                 >
                   Apply Code
                 </button>
@@ -221,7 +223,7 @@
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="green"
-              class="w-20 h-20 "
+              class="w-20 h-20"
             >
               <path
                 fill-rule="evenodd"
@@ -235,13 +237,13 @@
           </div>
           <div class="text-center text-gray-400" id="confirm-order"></div>
           <button
-            class="px-4 py-1 block m-auto mb-2 rounded-full bg-red-500 text-white text-xs" id="cancel"
+            class="px-4 py-1 block m-auto mb-2 rounded-full bg-red-500 text-white text-xs"
+            id="cancel"
           >
             Cancel Order
           </button>
         </div>
       </div>
     </main>
-    
   </body>
 </html>

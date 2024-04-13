@@ -262,7 +262,7 @@ function displayCart() {
         </div>
         <div class="flex text-center mt-1 p-2 *:w-1/2 ">
           <a href="index.html" class="border-4 border-double border-amethyst-600 rounded-full text-sm py-1 mx-1">Continue Shopping</a>
-          <a  class="border-2 rounded-full bg-amethyst-600 hover:bg-amethyst-700 text-white text-sm py-1 mx-1" id="open-order-box">Place Order</a>
+          <a href="address.html" class="border-2 rounded-full bg-amethyst-600 hover:bg-amethyst-700 text-white text-sm py-1 mx-1" id="">Checkout</a>
         </div>
      `
   } else {
@@ -290,7 +290,8 @@ function displayCart() {
 const modal = document.querySelector("#modal");
 const closeModalButton = document.querySelector("#close");
 const openPromoBoxButton = document.querySelector("#open-promo-box");
-const openOrderBoxButton = document.querySelector("#open-order-box");
+// const openOrderBoxButton = document.getElementById("open-order-box");
+// console.log(openOrderBoxButton)
 const CancelOrderButton = document.querySelector("#cancel")
 const promoBox = document.querySelector("#promo-box");
 const orderBox = document.querySelector("#order-box");
@@ -299,14 +300,15 @@ const orderBox = document.querySelector("#order-box");
 closeModalButton.addEventListener("click", closeModal)
 CancelOrderButton.addEventListener("click", cancelOrder)
 
-function cancelOrder(){
+// function to cancel order
+function cancelOrder() {
   closeModal()
   orderBox.style.display = "none"
   promoBox.style.display = "none"
   localStorage.clear()
   displayCart()
   window.location.href = "index.html"
-  
+
 }
 function closeModal() {
   modal.style.display = "none"
@@ -315,21 +317,17 @@ function closeModal() {
 function openModal() {
   modal.style.display = "block"
 }
-// // Add click handler to close modal if clicked outside
-// // function to open modal
-// // function to close modal
 
-// // When order box button clicked, hide promo box and open modal
-// openOrderBoxButton.addEventListener("click", function () {
-//   promoBox.style.display = "none"
+openPromoBoxButton.addEventListener("click", function () {
+  openModal()
+  orderBox.style.display = "none"
+})
+// openOrderBoxButton.addEventListener("click", function() {
 //   openModal()
-// })
-// // When promo box button clicked, open modal and hide order box
-// openPromoBoxButton.addEventListener("click", function () {
-//   openModal()
-//   orderBox.style.display = "none"
-// })
 
+//   // promoBox.style.display = "none";
+
+// })
 
 
 window.onclick = function (event) {
@@ -339,54 +337,54 @@ window.onclick = function (event) {
 }
 
 
-openPromoBoxButton.addEventListener("click", function () {
-  // open modal
-  openModal()
+// openPromoBoxButton.addEventListener("click", function () {
+//   // open modal
+//   openModal()
 
-  const orderBoxOpenkey = "isOrderBoxOpen"
-  orderBox.addEventListener("toggle", function () {
-    localStorage.setItem(orderBoxOpenkey, !orderBox.classList.contains("hidden"))
-  })
-  // when page loads
-  const isOrderBoxOpen = localStorage.getItem(orderBoxOpenkey)
+//   const orderBoxOpenkey = "isOrderBoxOpen"
+//   orderBox.addEventListener("toggle", function () {
+//     localStorage.setItem(orderBoxOpenkey, !orderBox.classList.contains("hidden"))
+//   })
+//   // when page loads
+//   const isOrderBoxOpen = localStorage.getItem(orderBoxOpenkey)
 
-  if (isOrderBoxOpen) {
-    orderBox.classList.remove("hidden")
-  } else {
-    orderBox.classList.add("hidden")
-  }
+//   if (isOrderBoxOpen) {
+//     orderBox.classList.remove("hidden")
+//   } else {
+//     orderBox.classList.add("hidden")
+//   }
 
-})
-// Show the modal when the Place Order button is clicked
-openOrderBoxButton.addEventListener("click", function () {
-  // Show the modal
-  openModal()
+// })
+// // Show the modal when the Place Order button is clicked
+// openOrderBoxButton.addEventListener("click", function () {
+//   // Show the modal
+//   openModal()
 
-  // Save whether the promo box is open in local storage
-  const promoBoxOpenKey = "isPromoBoxOpen";
+//   // Save whether the promo box is open in local storage
+//   const promoBoxOpenKey = "isPromoBoxOpen";
 
-  // When the promo box is toggled open or closed
-  promoBox.addEventListener("toggle", function () {
-    // Save the open state to local storage
-    localStorage.setItem(
-      promoBoxOpenKey, !promoBox.classList.contains("hidden"))
-  });
+//   // When the promo box is toggled open or closed
+//   promoBox.addEventListener("toggle", function () {
+//     // Save the open state to local storage
+//     localStorage.setItem(
+//       promoBoxOpenKey, !promoBox.classList.contains("hidden"))
+//   });
 
-  // When the page loads
-  const isPromoBoxOpen = localStorage.getItem(promoBoxOpenKey);
+//   // When the page loads
+//   const isPromoBoxOpen = localStorage.getItem(promoBoxOpenKey);
 
-  // If promo box was open
-  if (isPromoBoxOpen) {
-    // Show the promo box
-    promoBox.classList.remove("hidden");
+//   // If promo box was open
+//   if (isPromoBoxOpen) {
+//     // Show the promo box
+//     promoBox.classList.remove("hidden");
 
-    // Otherwise
-  } else {
-    // Hide the promo box
-    promoBox.classList.add("hidden");
+//     // Otherwise
+//   } else {
+//     // Hide the promo box
+//     promoBox.classList.add("hidden");
 
-  }
-});
+//   }
+// });
 
 
 function orderSuccess() {
@@ -402,8 +400,8 @@ orderSuccess()
 
 
 
-const inputEl = document.querySelector("#my-input")
-const codeButton = document.querySelector(".promo-button")
+const inputEl = document.querySelector("#code-input")
+const codeButton = document.querySelector("#promo-button")
 
 inputEl.addEventListener('input', () => {
   if (inputEl.value.length > 0) {
@@ -429,7 +427,7 @@ inputEl.addEventListener('input', () => {
 
 
 
-
+// console.log(alert())
 
 
 
