@@ -1,5 +1,7 @@
+/** @format */
+
 // Image slider
-let slideIndex = 0
+let slideIndex = 0;
 
 function showSlides() {
   let slides = document.getElementsByClassName("slide");
@@ -11,30 +13,27 @@ function showSlides() {
     slideIndex = 1;
   }
   slides[slideIndex - 1].style.display = "block";
-
 }
-const btn = document.querySelector('button.mobile-menu-button');
-const menu = document.querySelector('.mobile-menu');
+const btn = document.querySelector("button.mobile-menu-button");
+const menu = document.querySelector(".mobile-menu");
 const addtoCartBtn = document.querySelectorAll("#add-to-cart");
 
-
-
 // Toggle the hidden class on click
-btn.addEventListener('click', () => {
-  menu.classList.toggle('hidden');
+btn.addEventListener("click", () => {
+  menu.classList.toggle("hidden");
 });
 
 for (let i = 0; i < addtoCartBtn.length; i++) {
-  addtoCartBtn[i].addEventListener('click', () => {
-    cartNumber(products[i])
-    totalCost(products[i])
-    withFlatRate()
-    confirmationMessage()
+  addtoCartBtn[i].addEventListener("click", () => {
+    cartNumber(products[i]);
+    totalCost(products[i]);
+    withFlatRate();
+    confirmationMessage();
   });
 }
 
-const products =
-  [{
+const products = [
+  {
     id: 1,
     img: "Bedlington Terrier.webp",
     name: "Belington",
@@ -42,8 +41,6 @@ const products =
     description: "Belington",
     inCart: 0,
     tag: "Belington",
-
-
   },
   {
     id: 2,
@@ -52,7 +49,7 @@ const products =
     price: 50000,
     description: "Alaskan Malamute",
     inCart: 0,
-    tag: "AlasKanMalamute"
+    tag: "AlasKanMalamute",
   },
   {
     id: 3,
@@ -61,8 +58,7 @@ const products =
     price: 85000,
     description: "American Eskimo",
     inCart: 0,
-    tag: "AmericanEskimo"
-
+    tag: "AmericanEskimo",
   },
   {
     id: 4,
@@ -71,7 +67,7 @@ const products =
     description: "Border Collie",
     inCart: 0,
     tag: "BorderCollie",
-    img: "Border-Collie.jpeg"
+    img: "Border-Collie.jpeg",
   },
   {
     id: 5,
@@ -80,7 +76,7 @@ const products =
     description: "Alaskan Malamute",
     inCart: 0,
     tag: "AlaskaMalamute",
-    img: "JackRusell-terrier.webp"
+    img: "JackRusell-terrier.webp",
   },
   {
     id: 6,
@@ -89,9 +85,7 @@ const products =
     description: "Shiba Inu",
     inCart: 0,
     tag: "ShibaInu",
-    img: "Shiba-Inu-2.webp"
-
-
+    img: "Shiba-Inu-2.webp",
   },
   {
     id: 7,
@@ -100,7 +94,7 @@ const products =
     description: "Rottweiler",
     inCart: 0,
     tag: "Rottweiler",
-    img: "Rottweiler-4.avif"
+    img: "Rottweiler-4.avif",
   },
   {
     id: 8,
@@ -109,75 +103,72 @@ const products =
     description: "Dalmatian",
     inCart: 0,
     tag: "Dalmatian",
-    img: "dalmatian-5.jpeg"
-  }
-  ]
+    img: "dalmatian-5.jpeg",
+  },
+];
 // show confrimation message when product is added
 function confirmationMessage() {
-  const confirmationMessage = document.querySelector(".message")
-  confirmationMessage.style.display = "block"
+  const confirmationMessage = document.querySelector(".message");
+  confirmationMessage.style.display = "block";
 
   //  hide a message after a delay
   setTimeout(() => {
-    confirmationMessage.style.display = "none"
+    confirmationMessage.style.display = "none";
     // hides message after one second
-  }, 1000)
+  }, 1000);
 }
 // Update cart number and items
 function cartNumber(product) {
-  let productNumbers = localStorage.getItem('cartNumbers');
+  let productNumbers = localStorage.getItem("cartNumbers");
   productNumbers = parseInt(productNumbers);
   if (productNumbers) {
-    localStorage.setItem('cartNumbers', productNumbers + 1);
+    localStorage.setItem("cartNumbers", productNumbers + 1);
     document.getElementById("items-count").textContent = productNumbers + 1;
   } else {
-    localStorage.setItem('cartNumbers', 1);
+    localStorage.setItem("cartNumbers", 1);
     document.getElementById("items-count").textContent = 1;
   }
-  setItems(product)
+  setItems(product);
 }
 
 // Set items in localStorage
 function setItems(product) {
-  let cartItems = localStorage.getItem("productInCart")
-  cartItems = JSON.parse(cartItems)
+  let cartItems = localStorage.getItem("productInCart");
+  cartItems = JSON.parse(cartItems);
   if (cartItems != null) {
     if (cartItems[product.tag] == undefined) {
       cartItems = {
         ...cartItems,
-        [product.tag]: product
-      }
+        [product.tag]: product,
+      };
     }
-    cartItems[product.tag].inCart += 1
+    cartItems[product.tag].inCart += 1;
   } else {
-    product.inCart = 1
+    product.inCart = 1;
     cartItems = {
-      [product.tag]: product
-    }
+      [product.tag]: product,
+    };
   }
   //  convert from JavaScript object to JSON and set to local Storage
-  localStorage.setItem("productInCart", JSON.stringify(cartItems))
+  localStorage.setItem("productInCart", JSON.stringify(cartItems));
 }
 
 // On load, update cart numbers
 function onloadsCartNumbers() {
-  let productNumbers = localStorage.getItem('cartNumbers');
-  let cartItems = localStorage.getItem('productInCart');
+  let productNumbers = localStorage.getItem("cartNumbers");
+  let cartItems = localStorage.getItem("productInCart");
   if (productNumbers) {
     document.getElementById("items-count").textContent = productNumbers;
   }
   if (!cartItems) {
-    localStorage.setItem('cartNumbers', 0)
-    document.getElementById("items-count").textContent = 0
+    localStorage.setItem("cartNumbers", 0);
+    document.getElementById("items-count").textContent = 0;
   }
 }
-onloadsCartNumbers()
+onloadsCartNumbers();
 
 // call display cart
-displayCart()
-
-
-
+displayCart();
 
 function totalCost(product) {
   let cartCost = localStorage.getItem("totalCost");
@@ -190,9 +181,8 @@ function totalCost(product) {
   }
 }
 
-
 function withFlatRate() {
-  let rate = 3000
+  let rate = 3000;
 
   let totalCost = localStorage.getItem("totalCost");
   totalCost = parseInt(totalCost);
@@ -202,27 +192,29 @@ function withFlatRate() {
   localStorage.setItem("costWithFlatRate", costWithFlatRate);
 }
 
-
 function displayCart() {
-  let cartItems = localStorage.getItem('productInCart')
+  let cartItems = localStorage.getItem("productInCart");
   // convert from JSON object to JavaScript object
-  cartItems = JSON.parse(cartItems)
+  cartItems = JSON.parse(cartItems);
 
-  const itemContainer = document.querySelector(".item-list")
-  const totalContainer = document.querySelector(".total-container")
-  const cartCost = localStorage.getItem("totalCost")
-  const costWithFlatRate = localStorage.getItem("costWithFlatRate")
+  const itemContainer = document.querySelector(".item-list");
+  const totalContainer = document.querySelector(".total-container");
+  const cartCost = localStorage.getItem("totalCost");
+  const costWithFlatRate = localStorage.getItem("costWithFlatRate");
   if (cartItems && itemContainer && totalContainer) {
-    itemContainer.innerHTML = ""
-    Object.values(cartItems).map(item => {
-      itemContainer.innerHTML +=
-        `<tr class="tr *:p-3 text-sm tracking-tight text-gray-600 even:bg-alabaster-100 font-normal">
+    itemContainer.innerHTML = "";
+    Object.values(cartItems).map((item) => {
+      itemContainer.innerHTML += `<tr class="tr *:p-3 text-sm tracking-tight text-gray-600 even:bg-alabaster-100 font-normal">
             <td>${item.name}</td>
-            <td height=50 width=100><img src="/images/${item.img}" alt="${item.name}"></td>
+            <td height=50 width=100><img src="/images/${item.img}" alt="${
+        item.name
+      }"></td>
             <td><span>&#x20A6;</span>${item.price}</td>
              <td class="text-center">
               <span id="decrease"> - </sp>
-              <input class="border border-red-200 qantity" value="${item.inCart}">
+              <input class="border border-red-200 qantity" value="${
+                item.inCart
+              }">
               <span id="increase" onclick="increaseCartItemQuantity(this)"> + </span>
              </td>
            <td class=""><span>&#x20A6;</span>${item.inCart * item.price}</td>
@@ -234,8 +226,8 @@ function displayCart() {
 
          </td>
         </tr>
-      `
-    })
+      `;
+    });
 
     totalContainer.innerHTML += `
     <div class="flex justify-end border-1">
@@ -264,9 +256,9 @@ function displayCart() {
           <a href="index.html" class="border-4 border-double border-amethyst-600 rounded-full text-sm py-1 mx-1">Continue Shopping</a>
           <a href="address.html" class="border-2 rounded-full bg-amethyst-600 hover:bg-amethyst-700 text-white text-sm py-1 mx-1" id="">Checkout</a>
         </div>
-     `
+     `;
   } else {
-    document.querySelector("table").remove()
+    document.querySelector("table").remove();
     // document.querySelector("table").style.display = "none"
     document.querySelector(".total-container").innerHTML = `
     <div class="border border-1 *:mt-3">
@@ -281,9 +273,9 @@ function displayCart() {
        </div>
       <a href="index.html" class="border-2 rounded-full bg-amethyst-600 hover:bg-alabaster-300 text-center text-white text-sm block w-1/4 mb-2 m-auto py-1">Return to shop</a>
     </div>
-    `
+    `;
   }
-  console.log(cartItems)
+  console.log(cartItems);
 }
 
 // function to control the modal
@@ -292,36 +284,34 @@ const closeModalButton = document.querySelector("#close");
 const openPromoBoxButton = document.querySelector("#open-promo-box");
 // const openOrderBoxButton = document.getElementById("open-order-box");
 // console.log(openOrderBoxButton)
-const CancelOrderButton = document.querySelector("#cancel")
+const CancelOrderButton = document.querySelector("#cancel");
 const promoBox = document.querySelector("#promo-box");
 const orderBox = document.querySelector("#order-box");
 
-
-closeModalButton.addEventListener("click", closeModal)
-CancelOrderButton.addEventListener("click", cancelOrder)
+closeModalButton.addEventListener("click", closeModal);
+CancelOrderButton.addEventListener("click", cancelOrder);
 
 // function to cancel order
 function cancelOrder() {
-  closeModal()
-  orderBox.style.display = "none"
-  promoBox.style.display = "none"
-  localStorage.clear()
-  displayCart()
-  window.location.href = "index.html"
-
+  closeModal();
+  orderBox.style.display = "none";
+  promoBox.style.display = "none";
+  localStorage.clear();
+  displayCart();
+  window.location.href = "index.html";
 }
 function closeModal() {
-  modal.style.display = "none"
+  modal.style.display = "none";
 }
 
 function openModal() {
-  modal.style.display = "block"
+  modal.style.display = "block";
 }
 
 openPromoBoxButton.addEventListener("click", function () {
-  openModal()
-  orderBox.style.display = "none"
-})
+  openModal();
+  orderBox.style.display = "none";
+});
 // openOrderBoxButton.addEventListener("click", function() {
 //   openModal()
 
@@ -329,13 +319,11 @@ openPromoBoxButton.addEventListener("click", function () {
 
 // })
 
-
 window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
-}
-
+};
 
 // openPromoBoxButton.addEventListener("click", function () {
 //   // open modal
@@ -386,57 +374,30 @@ window.onclick = function (event) {
 //   }
 // });
 
-
 function orderSuccess() {
   // generate random number
-  let randomNumberCode = Math.floor(Math.random() * 10000)
-  let confirmationNumber = randomNumberCode
-  document.querySelector("#confirm-order").innerHTML = `Confirmation number:  <span class="text-2xl text-gray-700 font-bold">${confirmationNumber}</span>`
+  let randomNumberCode = Math.floor(Math.random() * 10000);
+  let confirmationNumber = randomNumberCode;
+  document.querySelector(
+    "#confirm-order"
+  ).innerHTML = `Confirmation number:  <span class="text-2xl text-gray-700 font-bold">${confirmationNumber}</span>`;
 }
-orderSuccess()
+orderSuccess();
 
+const inputEl = document.querySelector("#code-input");
+const codeButton = document.querySelector("#promo-button");
 
-
-
-
-
-const inputEl = document.querySelector("#code-input")
-const codeButton = document.querySelector("#promo-button")
-
-inputEl.addEventListener('input', () => {
+inputEl.addEventListener("input", () => {
   if (inputEl.value.length > 0) {
-    codeButton.classList.remove("opacity-25")
-    codeButton.classList.add("opacity-100")
-
+    codeButton.classList.remove("opacity-25");
+    codeButton.classList.add("opacity-100");
   } else {
-    codeButton.classList.remove("opacity-100")
-    codeButton.classList.add("opacity-25")
+    codeButton.classList.remove("opacity-100");
+    codeButton.classList.add("opacity-25");
   }
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
+});
 
 // console.log(alert())
-
-
-
-
-
-
-
-
-
 
 // handle submit of promo code
 // const promoForm = document.querySelector("form")

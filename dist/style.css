@@ -1263,9 +1263,9 @@ video {
   display: none;
 }
 
-#order-modal {
+/* #order-modal-content{
   display: block;
-}
+} */
 
 #promoBox.hidden,
 #orderBox.hidden {
@@ -1361,11 +1361,6 @@ video {
 .hover\:bg-alabaster-300:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(212 212 213 / var(--tw-bg-opacity));
-}
-
-.hover\:bg-amethyst-500:hover{
-  --tw-bg-opacity: 1;
-  background-color: rgb(167 62 220 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-amethyst-700:hover{
